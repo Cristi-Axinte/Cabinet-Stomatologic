@@ -1,1 +1,44 @@
-<p>user-registration-page works!</p>
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <h3>Welcome to our site!</h3>
+            <button  type="submit">Login</button>
+        </div>
+
+        <div class="col-md-9 register-right">
+            <div class="tab-content">
+                <h3 class="register-heading">Don`t have an account? Create one!</h3>
+                <div class = "register-right">
+                    <form [formGroup] ="service.formModel" autocomplete="off" (submit)="onSubmit()">
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" formControlName="FirstName" placeholder="First Name"/>
+                                </div>
+       
+                                <div class="form-group">
+                                    <input type="text" class="form-control" formControlName="LastName" placeholder="Last Name"/>
+                                </div>
+       
+                                <div class="form-group">
+                                    <input type="password" class="form-control" formControlName="Password" placeholder="Password"/>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" formControlName="Email"  placeholder="Email"/>
+                                </div>
+       
+                                <div class="form-group">
+                                    <input type="text" class="form-control"  formControlName="UserName" placeholder="Username"/>
+                                </div>
+                                <button type="submit" class="btnRegister" [disabled]="service.formModel.invalid">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
