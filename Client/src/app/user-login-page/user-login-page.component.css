@@ -1,17 +1,17 @@
-.register{
+.login{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     border-radius: 1.5rem;
     margin-top: 180px;
 }
 
-.login-left{
+.register-left{
     text-align: center;
     color: #fff;
     margin-top: 150px;
     margin-bottom: 150px;
 }
 
-.login-left button{
+.register-left button{
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
@@ -21,24 +21,25 @@
     color: #383d41;
 }
 
-.register-right{
+.login-right{
     border-radius: 1.3rem;
     background: #f8f9fa;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
 }
 
-.register .register-form{
+.login .login-form{
     padding: 10%;
     margin-top: 10%;
 }
 
 .form-control { 
     margin-top: 5px;
+    margin-left: 50%;
+    margin-right: 50%;
 }
 
-.btnRegister{
-    float: right;
+.btnLogin{
     margin-top: 10%;
     border: none;
     border-radius: 1.5rem;
@@ -47,10 +48,11 @@
     color: #fff;
     font-weight: 600;
     width: 50%;
-    cursor: pointer;
+    margin-left: 80%;
+    margin-right: 80%;
 }
 
-.register-heading{
+.login-heading{
     text-align: center;
     margin-top: 8%;
     margin-bottom: -15%;

@@ -1,0 +1,33 @@
+<div class="container login">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <h3>Don`t have an account? Create on!</h3>
+            <button  routerLink="/userRegistration" >Register</button>
+        </div>
+
+        <div class="col-md-9 login-right">
+            <div class="tab-content">
+                <h3 class="login-heading">Login</h3>
+                <div class = "login-right">
+                    <form [formGroup] ="service.formModel" autocomplete="off" (submit)="onSubmit()">
+                        <div class="row login-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" formControlName="Email"  placeholder="Email"/>
+                                    <label class="text-danger" *ngIf="service.formModel.get('Email')?.touched && service.formModel.get('Email')?.errors?.required">Email is required!</label>
+                                    <label class="text-danger" *ngIf="service.formModel.get('Email')?.touched && service.formModel.get('Email')?.errors?.email">Invalid email!</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control" formControlName="Password" placeholder="Password"/>
+                                    <label class="text-danger" *ngIf="service.formModel.get('Password')?.touched && service.formModel.get('Password')?.errors?.required">Password is required!</label>
+                                </div>
+                                <button type="submit" class="btnLogin" [disabled]="form.invalid">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
