@@ -13,18 +13,18 @@
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" formControlName="FirstName" placeholder="First Name"/>
+                                    <input type="text" class="form-control" formControlName="FirstName" placeholder="First Name:"/>
                                     <label class="text-danger" *ngIf="service.formModel.get('FirstName')?.touched && service.formModel.get('FirstName')?.errors?.required">First Name is required!</label>
                                 </div>
        
                                 <div class="form-group">
-                                    <input type="text" class="form-control" formControlName="LastName" placeholder="Last Name"/>
+                                    <input type="text" class="form-control" formControlName="LastName" placeholder="Last Name:"/>
                                     <label class="text-danger" *ngIf="service.formModel.get('LastName')?.touched && service.formModel.get('FirstName')?.errors?.required">Last Name is required!</label>
 
                                 </div>
        
                                 <div class="form-group">
-                                    <input type="password" class="form-control" formControlName="Password" placeholder="Password"/>
+                                    <input type="password" class="form-control" formControlName="Password" placeholder="Password:"/>
                                     <label class="text-danger" *ngIf="service.formModel.get('Password')?.touched && service.formModel.get('Password')?.errors?.required">Password is required!</label>
 
                                 </div>
@@ -32,13 +32,13 @@
                             
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" formControlName="Email"  placeholder="Email"/>
+                                    <input class="form-control" formControlName="Email"  placeholder="Email:"/>
                                     <label class="text-danger" *ngIf="service.formModel.get('Email')?.touched && service.formModel.get('Email')?.errors?.required">Email is required!</label>
                                     <label class="text-danger" *ngIf="service.formModel.get('Email')?.touched && service.formModel.get('Email')?.errors?.email">Invalid email!</label>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  formControlName="UserName" placeholder="Username"/>
+                                    <input type="text" class="form-control"  formControlName="UserName" placeholder="Username:"/>
                                     <label class="text-danger" *ngIf="service.formModel.get('UserName')?.touched && service.formModel.get('UserName')?.errors?.required">Username is required!</label>
                                 </div>
                                 <button type="submit" class="btnRegister" [disabled]="service.formModel.invalid">Register</button>

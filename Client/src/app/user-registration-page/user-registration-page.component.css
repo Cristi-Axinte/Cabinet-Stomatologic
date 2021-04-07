@@ -1,5 +1,5 @@
 .register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: #647ac6;
     border-radius: 1.5rem;
     margin-top: 180px;
 }
@@ -19,6 +19,7 @@
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
+    margin-top: 10px;
 }
 
 .register-right{
@@ -31,6 +32,8 @@
 .register .register-form{
     padding: 10%;
     margin-top: 10%;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 .form-control { 
@@ -43,7 +46,7 @@
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #0062cc;
+    background: #647ac6;
     color: #fff;
     font-weight: 600;
     width: 50%;

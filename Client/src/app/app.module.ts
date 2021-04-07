@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { UserRegistrationPageComponent } from './user-registration-page/user-registration-page.component';
 import { UserRegistrationService } from './shared/user-registration.service';
 import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationPageComponent,
-    UserLoginPageComponent
+    UserLoginPageComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

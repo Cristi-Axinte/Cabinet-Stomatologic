@@ -10,7 +10,7 @@ import { UserLoginService } from '../shared/user-login.service';
 })
 export class UserLoginPageComponent implements OnInit {
 
-  constructor(private service:UserLoginService,
+  constructor(public service:UserLoginService,
     private router: Router,) { }
 
   ngOnInit(): void {
@@ -21,6 +21,8 @@ export class UserLoginPageComponent implements OnInit {
   onSubmit()
   {
     this.service.login().subscribe((res:any) => {localStorage.setItem('token', res.token);
-    this.service.formModel.reset();});
+    this.service.formModel.reset();
+    this.router.navigateByUrl('/mainPage');
+  });
   }
 }

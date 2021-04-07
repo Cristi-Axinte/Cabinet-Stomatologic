@@ -19,16 +19,18 @@ namespace Server.Controllers
 
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
+        private readonly ApplicationSettings _appSettings;
 
-        public UserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public UserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IOptions<ApplicationSettings> appSettings)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _appSettings = appSettings.Value;
         }
 
         [HttpPost]
         [Route("Register")]
-        public async Task<ActionResult> PostUser(UserRegistrationCredentialsDTO user)
+        public async Task<ActionResult> Register(UserRegistrationCredentialsDTO user)
         {
             var applicationUser = new ApplicationUser()
             {
@@ -48,5 +50,30 @@ namespace Server.Controllers
                 throw ex;
             }
         }
+
+        [HttpPost]
+        [Route("Login")]
+        public async Task<IActionResult> Login(UserLoginCredentialsDTO userCredentials)
+        {
+            var user = await _userManager.FindByEmailAsync(userCredentials.Email);
+            if (user != null && await _userManager.CheckPasswordAsync(user, userCredentials.Password))
+            {
+                var TokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(new Claim[]
+                    {
+                        new Claim("UserID", user.Id.ToString())
+                    }),
+                    Expires = DateTime.UtcNow.AddMinutes(30),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
+                };
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var securityToken = tokenHandler.CreateToken(TokenDescriptor);
+                var token = tokenHandler.WriteToken(securityToken);
+                return Ok(new { token });
+            }
+            else return BadRequest(new { message = "Email or password is incorrect." });
+        }
+        
     }
 }
