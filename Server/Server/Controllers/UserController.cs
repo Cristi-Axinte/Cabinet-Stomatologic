@@ -32,6 +32,7 @@ namespace Server.Controllers
         [Route("Register")]
         public async Task<ActionResult> Register(UserRegistrationCredentialsDTO user)
         {
+            user.Role = "User";
             var applicationUser = new ApplicationUser()
             {
                 FirstName = user.FirstName,
@@ -43,6 +44,7 @@ namespace Server.Controllers
             try
             {
                 var result = await _userManager.CreateAsync(applicationUser, user.Password);
+                await _userManager.AddToRoleAsync(applicationUser, user.Role);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -58,11 +60,16 @@ namespace Server.Controllers
             var user = await _userManager.FindByEmailAsync(userCredentials.Email);
             if (user != null && await _userManager.CheckPasswordAsync(user, userCredentials.Password))
             {
+
+                var role = await _userManager.GetRolesAsync(user);
+                IdentityOptions _options = new IdentityOptions();
+
                 var TokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                        new Claim("UserID", user.Id.ToString())
+                        new Claim("UserID", user.Id.ToString()),
+                        new Claim(_options.ClaimsIdentity.RoleClaimType, role.FirstOrDefault())
                     }),
                     Expires = DateTime.UtcNow.AddMinutes(30),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)

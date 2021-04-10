@@ -9,13 +9,15 @@ import { UserRegistrationPageComponent } from './user-registration-page/user-reg
 import { UserRegistrationService } from './shared/user-registration.service';
 import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { AuctionsPageComponent } from './auctions-page/auctions-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationPageComponent,
     UserLoginPageComponent,
-    MainPageComponent
+    MainPageComponent,
+    AuctionsPageComponent
   ],
   imports: [
     BrowserModule,

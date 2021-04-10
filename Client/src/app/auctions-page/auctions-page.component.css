@@ -1,0 +1,57 @@
+.auctions{
+    border-radius: 1.3rem;
+    background: #f8f9fa;
+    font-display: center;
+    margin-top: 200px;
+    width: 1000px;
+}
+
+.auctions-form{
+    padding: 10%;
+}
+
+.insideAuctions{
+    margin-top: 50px;
+    border-radius: 1.3rem;
+    font-display: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-control { 
+    margin-left: 55%;
+    margin-right: 50%;
+}
+
+.btnBet{
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #647ac6;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    margin-left: 80%;
+    margin-right: 85%;
+}
+
+.auctions-heading{
+    text-align: center;
+    color: #495057;
+}
+
+.form-group{
+    text-align: center;
+}
+
+.product {
+    margin-top: 30px;
+    text-align: center;
+    color: #495057;
+}
+
+.bid {
+    margin-top: 40px;
+}
+

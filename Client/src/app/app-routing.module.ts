@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuctionsPageComponent } from './auctions-page/auctions-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { MainPageComponent } from './main-page/main-page.component';
 import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
@@ -9,7 +10,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'userRegistration', pathMatch:'full'},
   {path: 'userRegistration', component: UserRegistrationPageComponent},
   {path: 'userLogin', component: UserLoginPageComponent},
-  {path: 'mainPage', component: MainPageComponent, canActivate:[AuthGuard]}
+  {path: 'mainPage', component: MainPageComponent, canActivate:[AuthGuard]},
+  {path: 'auctionsPage', component: AuctionsPageComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({
