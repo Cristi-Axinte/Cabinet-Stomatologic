@@ -1,0 +1,49 @@
+.carousel {
+  height: 380px;
+}
+
+.carousel-item,
+.carousel-inner {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-item {
+  text-align: center;
+}
+
+body {
+  color: #5a5a5a;
+}
+
+.overlay {
+  color: #fff;
+  position: absolute;
+  z-index: 12;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: "Montserrat Regular";
+}
+
+.extra {
+  font-weight: bold;
+  color: #eb5844;
+  font-size: 30px;
+}
+
+.format {
+  font-size: 20px;
+  font-family: "Montserrat Regular"
+}
+
+.topper {
+  font-size: 45px;
+  font-family: "Montserrat ExtraBold"
+}

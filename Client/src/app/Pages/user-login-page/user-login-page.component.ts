@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserLoginService } from '../shared/user-login.service';
+import { UserLoginService } from '../../shared/user-login.service';
 
 @Component({
   selector: 'app-user-login-page',

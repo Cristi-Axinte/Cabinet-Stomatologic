@@ -67,7 +67,7 @@ namespace Server.Controllers
                 var TokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
-                    {
+                    {     
                         new Claim("UserID", user.Id.ToString()),
                         new Claim(_options.ClaimsIdentity.RoleClaimType, role.FirstOrDefault())
                     }),

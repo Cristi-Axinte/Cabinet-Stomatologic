@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3vpyUQRwr/mK8+BcoAxoGf92VITlWFkE4eRk5hzCegg7Es/4IKI3/TVTuOBvFPnKpn559W+CJ8FMALahI0hHYw==",
+  "dgSpecHash": "bd6edDhB17fXrhOq8bE5s9wqVp1oMWHNiNdMf8TSl0abn0hqXdT/6TIfPq77l7N+Pp9tm3WgZBMb9TEEoZmJ4w==",
   "success": true,
-  "projectFilePath": "D:\\Proiect Practica\\Server\\Server\\Server.csproj",
+  "projectFilePath": "D:\\Cabinet Stomatologic 2\\Server\\Server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cristi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Cristi\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.13\\microsoft.aspnetcore.authentication.jwtbearer.3.1.13.nupkg.sha512",

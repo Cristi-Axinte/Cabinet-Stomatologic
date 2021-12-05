@@ -1,0 +1,27 @@
+.navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 160px;
+    text-align: center;
+    background-color: transparent;
+}
+.navbar>.container .navbar-brand-centered, 
+.navbar>.container-fluid .navbar-brand-centered {
+    margin-left: -80px;
+}
+.navbar-brand{
+    font-family: Impact,fantasy;
+    color: #647ac6;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    padding-left:50px;
+}
+
+.logo {
+    width: 150px;
+}
+
+#navbarSupportedContent{
+    font-size: 15px;
+}

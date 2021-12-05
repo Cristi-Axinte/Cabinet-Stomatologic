@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proiect Practica\\Server\\Server\\Server.csproj": {}
+    "D:\\Cabinet Stomatologic 2\\Server\\Server\\Server.csproj": {}
   },
   "projects": {
-    "D:\\Proiect Practica\\Server\\Server\\Server.csproj": {
+    "D:\\Cabinet Stomatologic 2\\Server\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proiect Practica\\Server\\Server\\Server.csproj",
+        "projectUniqueName": "D:\\Cabinet Stomatologic 2\\Server\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "D:\\Proiect Practica\\Server\\Server\\Server.csproj",
+        "projectPath": "D:\\Cabinet Stomatologic 2\\Server\\Server\\Server.csproj",
         "packagesPath": "C:\\Users\\Cristi\\.nuget\\packages\\",
-        "outputPath": "D:\\Proiect Practica\\Server\\Server\\obj\\",
+        "outputPath": "D:\\Cabinet Stomatologic 2\\Server\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cristi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -103,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
