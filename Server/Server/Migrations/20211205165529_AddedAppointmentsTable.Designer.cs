@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server.Models;
 
 namespace Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211205165529_AddedAppointmentsTable")]
+    partial class AddedAppointmentsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,14 +240,10 @@ namespace Server.Migrations
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique()
-                        .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("Appointments");
                 });
@@ -272,11 +270,16 @@ namespace Server.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<int?>("AppointmentsId")
+                        .HasColumnType("int");
+
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(100)");
+
+                    b.HasIndex("AppointmentsId");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
@@ -332,17 +335,12 @@ namespace Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Server.Models.Appointments", b =>
-                {
-                    b.HasOne("Server.Models.ApplicationUser", "ApplicationUser")
-                        .WithOne("Appointments")
-                        .HasForeignKey("Server.Models.Appointments", "UserId");
-
-                    b.Navigation("ApplicationUser");
-                });
-
             modelBuilder.Entity("Server.Models.ApplicationUser", b =>
                 {
+                    b.HasOne("Server.Models.Appointments", "Appointments")
+                        .WithMany()
+                        .HasForeignKey("AppointmentsId");
+
                     b.Navigation("Appointments");
                 });
 #pragma warning restore 612, 618

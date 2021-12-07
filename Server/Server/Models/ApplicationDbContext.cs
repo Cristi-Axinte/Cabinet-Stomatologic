@@ -17,5 +17,7 @@ namespace Server.Models
         public DbSet<ApplicationUser> UserCredentials { get; set; }
 
         public DbSet<Consultations> Consultations { get; set; }
+
+        public DbSet<Appointments> Appointments { get; set; }
     }
 }
