@@ -20,6 +20,8 @@ namespace Server.Models
 
         public string Message { get; set; } 
 
+        public string Time { get; set; }
+
         public ApplicationUser ApplicationUser { get; set; }
 
     }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IConsultationsPrices } from 'src/app/Models/IConsultationsPrices';
+import { ConsultationsPricesService } from 'src/app/shared/consultations-prices.service';
 
 @Component({
   selector: 'app-prices-page',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PricesPageComponent implements OnInit {
 
-  constructor() { }
+  consultations: IConsultationsPrices[] = [];
+  constructor(public consultationService : ConsultationsPricesService) { }
 
   ngOnInit(): void {
+    this.getConsultations();
   }
 
+
+  getConsultations() {
+      this.consultationService.getConsultations().subscribe((consultationsPricesFromDB) => 
+         {
+          consultationsPricesFromDB.forEach(consultation => {
+              this.consultations.push(consultation);
+          })
+         }
+      )
+      console.log(this.consultations);
+  }
 }

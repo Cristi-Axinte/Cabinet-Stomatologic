@@ -15,6 +15,8 @@ import { ServicesPageComponent } from './Pages/services-page/services-page.compo
 import { PricesPageComponent } from './Pages/prices-page/prices-page.component';
 import { ContactPageComponent } from './Pages/contact-page/contact-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DatePipe } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [UserRegistrationService],
   bootstrap: [AppComponent]

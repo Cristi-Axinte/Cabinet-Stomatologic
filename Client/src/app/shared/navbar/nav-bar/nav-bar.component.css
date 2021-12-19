@@ -11,17 +11,14 @@
     margin-left: -80px;
 }
 .navbar-brand{
-    font-family: Impact,fantasy;
-    color: #647ac6;
-    font-size: 22px;
-    letter-spacing: 0.5px;
-    padding-left:50px;
+    width: 200px;
+    height: 63px;
 }
-
-.logo {
-    width: 150px;
-}
-
 #navbarSupportedContent{
     font-size: 15px;
+}
+
+.btn{
+    float:right;
+    margin-top: 8px;
 }
