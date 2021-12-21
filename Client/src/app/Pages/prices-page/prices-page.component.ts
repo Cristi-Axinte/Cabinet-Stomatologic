@@ -20,9 +20,10 @@ export class PricesPageComponent implements OnInit {
   getConsultations() {
       this.consultationService.getConsultations().subscribe((consultationsPricesFromDB) => 
          {
-          consultationsPricesFromDB.forEach(consultation => {
-              this.consultations.push(consultation);
-          })
+           this.consultations = consultationsPricesFromDB;
+          // consultationsPricesFromDB.forEach(consultation => {
+          //     this.consultations.push(consultation);
+          // })
          }
       )
       console.log(this.consultations);

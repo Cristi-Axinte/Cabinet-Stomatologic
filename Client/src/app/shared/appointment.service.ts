@@ -13,7 +13,7 @@ export class AppointmentService {
 
   appointmentForm = this.formBuilder.group({
     date: ['', Validators.required],
-    message: ['', Validators.required],
+    message: [''],
     time:['', Validators.required]
   });
 

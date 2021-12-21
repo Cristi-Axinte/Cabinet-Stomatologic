@@ -7,6 +7,7 @@
                 <div class="line-box">
                     <div class="line"></div>
                 </div>
+                <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('date')?.touched && appointmentService.appointmentForm.get('date')?.errors?.required">Date is required!</label>
             </label>
             
             <label>
@@ -15,6 +16,7 @@
                 <div class="line-box">
                     <div class="line"></div>
                 </div>
+                <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('time')?.touched && appointmentService.appointmentForm.get('time')?.errors?.required">Hour is required!</label>
             </label>
 
             <label>
