@@ -47,4 +47,11 @@ export class ConsultationsEditorPageComponent implements OnInit {
   });;
   }
 
+  deleteConsultation(consultationId : number) {
+      console.log(consultationId);
+      this.consultationService.deleteConsultationById(consultationId).subscribe((res:any) => {
+        
+      })
+  }
+
 }

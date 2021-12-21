@@ -28,4 +28,8 @@ export class ConsultationsPricesService {
     }
     return this.http.post(this.rootUrl + '/Consultation/UpdateConsultation', consultationDetails);
   }
+
+  deleteConsultationById(consultationId : number) {
+    return this.http.delete(this.rootUrl + '/Consultation/' + consultationId)
+  }
 }
