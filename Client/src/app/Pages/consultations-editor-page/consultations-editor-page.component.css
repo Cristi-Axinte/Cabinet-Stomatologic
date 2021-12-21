@@ -1,0 +1,36 @@
+.card-text {
+    margin-top: 5px;
+    margin-bottom: 1px;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.card-subtitle {
+    font-size: 1.2em;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    font-size: 1em;
+  }
+
+
+  button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgb(220,220,220);
+    color: rgb(120,120,120);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    margin-left: 3px;
+    margin-right: 3px;
+  }

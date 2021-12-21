@@ -14,4 +14,18 @@ export class ConsultationsPricesService {
   getConsultations() {
     return this.http.get<IConsultationsPrices[]>(this.rootUrl + '/Consultation/Get');
   }
+
+  getConsultationById(consultationId : number) {
+    return this.http.get<IConsultationsPrices>(this.rootUrl + '/Consultation/'+ consultationId)
+  }
+
+   
+  sendUpdatedConsultation(editConsultationModel : any) {
+    var consultationDetails = {
+      Id : editConsultationModel.value.Id,
+      ConsultationType : editConsultationModel.value.ConsultationType,
+      Price: editConsultationModel.value.Price,
+    }
+    return this.http.post(this.rootUrl + '/Consultation/UpdateConsultation', consultationDetails);
+  }
 }

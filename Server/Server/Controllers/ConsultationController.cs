@@ -41,6 +41,20 @@ namespace Server.Controllers
             return await consultations.ToListAsync();
         }
 
+        [HttpGet("{consultationId}")]
+        public async Task<ConsultationDTO> GetConsultation([FromRoute]int consultationId)
+        {
+            var consultation = _dbContext.Consultations.Where(u => u.Id == consultationId)
+                .Select(x => new ConsultationDTO
+                {
+                    Id = x.Id,
+                    ConsultationType = x.ConsultationType,
+                    Price = x.Price,
+                }).SingleOrDefaultAsync();
+
+            return await consultation;
+        }
+
         [HttpDelete("{id:int}")]
         public void DeleteConsultation(int id)
         {
@@ -53,11 +67,11 @@ namespace Server.Controllers
         }
         
         [HttpPost]
-        [Route("Update")]
-        public void UpdateConsultation(ConsultationDTO consultationSent)
+        [Route("UpdateConsultation")]
+        public void UpdateConsultation(ConsultationDTO consultationDetails)
         {
-            var consultation = _dbContext.Consultations.Find(consultationSent.Id);
-            _dbContext.Entry(consultation).CurrentValues.SetValues(consultationSent);
+            var consultation = _dbContext.Consultations.Find(consultationDetails.Id);
+            _dbContext.Entry(consultation).CurrentValues.SetValues(consultationDetails);
             _dbContext.SaveChanges();
         }
     }

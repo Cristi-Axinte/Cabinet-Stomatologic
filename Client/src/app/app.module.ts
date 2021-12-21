@@ -17,6 +17,9 @@ import { ContactPageComponent } from './Pages/contact-page/contact-page.componen
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { AppointmentsPanelPageComponent } from './Pages/appointments-panel-page/appointments-panel-page.component';
+import { ConsultationsPanelPageComponent } from './Pages/consultations-panel-page/consultations-panel-page.component';
+import { ConsultationsEditorPageComponent } from './Pages/consultations-editor-page/consultations-editor-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     ServicesPageComponent,
     PricesPageComponent,
     ContactPageComponent,
+    AppointmentsPanelPageComponent,
+    ConsultationsPanelPageComponent,
+    ConsultationsEditorPageComponent
   ],
   imports: [
     BrowserModule,

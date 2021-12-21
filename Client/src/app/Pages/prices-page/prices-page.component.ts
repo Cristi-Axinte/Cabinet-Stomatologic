@@ -21,9 +21,6 @@ export class PricesPageComponent implements OnInit {
       this.consultationService.getConsultations().subscribe((consultationsPricesFromDB) => 
          {
            this.consultations = consultationsPricesFromDB;
-          // consultationsPricesFromDB.forEach(consultation => {
-          //     this.consultations.push(consultation);
-          // })
          }
       )
       console.log(this.consultations);

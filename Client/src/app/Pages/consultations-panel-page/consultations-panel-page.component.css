@@ -1,0 +1,26 @@
+div.searchbar {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+
+div.noMatching {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+  .main-ctn{
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.custom {
+    font-size:20px;
+}
+
+.btn:hover{
+    background-color: #647ac6;
+}

@@ -1,0 +1,22 @@
+<div class="container h-100">
+  <div class="row justify-content-center align-items-center">
+        <div class="card" style="width: 18rem;">
+        <h1 class="card-title">Edit user</h1>
+        <form [formGroup] = "editConsultationModel" (submit)="submitChanges()" autocomplete="off">
+          <div class="card-body">
+              <h2 class="card-subtitle">Consultation Id:{{consultationId}}</h2>
+              <input class="input" formControlName="Id" hidden>
+              
+              <p class="card-text">Consultation Type:</p>
+              <input class="input" formControlName="ConsultationType" >
+              <label class="text-danger" *ngIf="editConsultationModel.get('FirstName')?.touched && editConsultationModel.get('FirstName')?.errors?.required">Consultation can`t be empty!</label>
+
+              <p class="card-text">Price:</p>
+              <input class="input" formControlName="Price">
+              <label class="text-danger" *ngIf="editConsultationModel.get('LastName')?.touched && editConsultationModel.get('LastName')?.errors?.required">Price can`t be empty!</label>
+
+          <button class="btn btn-light" [disabled]= "editConsultationModel.invalid">Update</button>
+          </div>
+        </form>    
+   </div>
+</div>
