@@ -16,7 +16,7 @@ import { PricesPageComponent } from './Pages/prices-page/prices-page.component';
 import { ContactPageComponent } from './Pages/contact-page/contact-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { DatePipe } from '@angular/common'
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { DatePipe } from '@angular/common'
     HttpClientModule,
     FormsModule,
     NgbModule,
+    NgxDatatableModule,
     BsDatepickerModule.forRoot()
   ],
   providers: [UserRegistrationService],
