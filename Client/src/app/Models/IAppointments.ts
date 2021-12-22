@@ -3,5 +3,6 @@ export interface IAppointments {
     firstName: string;
     lastName: string;
     appointmentDate: Date;
+    time: string;
     message: string;
 }

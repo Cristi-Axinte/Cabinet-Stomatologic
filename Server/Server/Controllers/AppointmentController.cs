@@ -38,14 +38,32 @@ namespace Server.Controllers
             var appointment = await _dbContext.Appointments.Include(uc => uc.ApplicationUser)
                 .Select(ap => new AppointmentsDTO
                 {
-                    Id = ap.ApplicationUser.Appointments.Id,
+                    Id = ap.Id,
                     FirstName = ap.ApplicationUser.FirstName,
                     LastName = ap.ApplicationUser.LastName,
-                    AppointmentDate = ap.ApplicationUser.Appointments.Data,
-                    Message = ap.ApplicationUser.Appointments.Message,
+                    AppointmentDate = ap.Data,
+                    Message = ap.Message,
+                    Time = ap.Time,
                 }).ToListAsync();
 
             return appointment;
+        }
+
+        [HttpGet("{appointmentId}")]
+        public async Task<AppointmentsDTO> GetConsultation([FromRoute] int appointmentId)
+        {
+            var appointment = _dbContext.Appointments.Where(u => u.Id == appointmentId)
+                .Select(x => new AppointmentsDTO
+                {
+                    Id = x.Id,
+                    FirstName = x.ApplicationUser.FirstName,
+                    LastName = x.ApplicationUser.LastName,
+                    AppointmentDate = x.Data,
+                    Message = x.Message,
+                    Time = x.Time,
+                }).SingleOrDefaultAsync();
+
+            return await appointment;
         }
 
         [HttpDelete("{id:int}")]
@@ -60,8 +78,9 @@ namespace Server.Controllers
         }
 
         [HttpPost]
-        [Route("Update")]
+        [Route("UpdateAppointment")]
         public void UpdateConsultation(Appointments appointmentSent)
+        
         {
             var appointmentToUpdate = _dbContext.Appointments.Find(appointmentSent.Id);
             _dbContext.Entry(appointmentToUpdate).CurrentValues.SetValues(appointmentSent);

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 import { AppointmentPageComponent } from './Pages/appointment-page/appointment-page.component';
+import { AppointmentsEditorPageComponent } from './Pages/appointments-editor-page/appointments-editor-page.component';
 import { AppointmentsPanelPageComponent } from './Pages/appointments-panel-page/appointments-panel-page.component';
 import { ConsultationsEditorPageComponent } from './Pages/consultations-editor-page/consultations-editor-page.component';
 import { ConsultationsPanelPageComponent } from './Pages/consultations-panel-page/consultations-panel-page.component';
@@ -18,12 +19,13 @@ const routes: Routes = [
   {path: 'userLogin', component: UserLoginPageComponent},
   {path: 'mainPage', component: MainPageComponent},
   {path: 'contactPage', component: ContactPageComponent},
-  {path: 'appointmentPage', component:AppointmentPageComponent},
+  {path: 'appointmentPage', component:AppointmentPageComponent, canActivate:[AuthGuard]},
   {path: 'servicesPage', component:ServicesPageComponent},
   {path: 'pricesPage', component:PricesPageComponent},
-  {path: 'consultationsPanelPage', component:ConsultationsPanelPageComponent},
-  {path: 'appointmentsPanelPage', component:AppointmentsPanelPageComponent},
-  {path: 'consultationEditorPage/:consultationId', component:ConsultationsEditorPageComponent},
+  {path: 'consultationsPanelPage', component:ConsultationsPanelPageComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
+  {path: 'appointmentsPanelPage', component:AppointmentsPanelPageComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
+  {path: 'consultationEditorPage/:consultationId', component:ConsultationsEditorPageComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
+  {path: 'appointmentEditorPage/:appointmentId', component:AppointmentsEditorPageComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
 ];
 
 @NgModule({

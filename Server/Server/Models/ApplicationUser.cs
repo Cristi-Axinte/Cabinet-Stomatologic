@@ -15,6 +15,6 @@ namespace Server.Models
         [Column(TypeName = "nvarchar(100)")]
         public string LastName { get; set; }
 
-        public Appointments Appointments { get; set; }
+        public ICollection<Appointments> Appointments { get; set; }
     }
 }

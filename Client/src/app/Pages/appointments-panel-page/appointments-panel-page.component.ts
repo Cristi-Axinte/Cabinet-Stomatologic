@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { IAppointments } from 'src/app/Models/IAppointments';
+import { AppointmentService } from 'src/app/shared/appointment.service';
+import { AppointmentsEditorPageComponent } from '../appointments-editor-page/appointments-editor-page.component';
 
 @Component({
   selector: 'app-appointments-panel-page',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppointmentsPanelPageComponent implements OnInit {
 
-  constructor() { }
+  appointments : IAppointments[] = [];
+  currentDialog: any = null;
+
+  constructor(public appointmentService : AppointmentService, public modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.getAppointments()
   }
 
+  getAppointments() {
+    this.appointmentService.getAppointments().subscribe((appointmentsFromDB) => 
+       {
+         this.appointments = appointmentsFromDB;
+       }
+    )
+  }
+
+  openAppointmentEditor(appointmentId : number) {
+    console.log(appointmentId);
+    this.currentDialog = this.modalService.open(AppointmentsEditorPageComponent);
+    this.currentDialog.componentInstance.appointmentId = appointmentId;
+}
 }

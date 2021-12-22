@@ -13,3 +13,7 @@ span.datatable-header-cell-label.draggable {
     font-size:20px;
     color: black;
 }
+
+.carousel-inner .sr-only {
+    display: none;
+ }

@@ -22,6 +22,11 @@ export class AppointmentService {
   getAppointments() {
     return this.http.get<IAppointments[]>(this.rootUrl + '/Appointment/Get');
   }
+
+  getAppointmentsById(appointmentId : number) {
+    return this.http.get<IAppointments>(this.rootUrl + '/Appointment/'+ appointmentId)
+  }
+
   postAppointment(userId : string) {
     this.fullDate = this.appointmentForm.value.date;
     console.log(this.fullDate);
@@ -34,4 +39,25 @@ export class AppointmentService {
       console.log(appointmentBody.data);
       return this.http.post(this.rootUrl + '/Appointment/Post', appointmentBody)
   }
+
+  sendUpdatedConsultation(editAppointmentsModel : any) {
+    var appointmentDetails = {
+      Id : editAppointmentsModel.value.Id,
+      FirstName : editAppointmentsModel.value.FirstName,
+      LastName: editAppointmentsModel.value.LastName,
+      Message: editAppointmentsModel.value.Message,
+      Time: editAppointmentsModel.value.Time,
+      Data: editAppointmentsModel.value.Data,
+    }
+    console.log(editAppointmentsModel.value.Id);
+    console.log(editAppointmentsModel.value.time);
+    console.log(editAppointmentsModel.value.date);
+
+    return this.http.post(this.rootUrl + '/Appointment/UpdateAppointment', appointmentDetails);
+  }
+
+  deleteAppointmentById(appointmentId : number) {
+    return this.http.delete(this.rootUrl + '/Appointment/' + appointmentId)
+  }
+
 }

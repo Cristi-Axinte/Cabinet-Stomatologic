@@ -1,8 +1,18 @@
 <app-nav-bar></app-nav-bar>
-<div id="carouselExampleSlidesOnly " class="carousel slide " data-ride="carousel ">
-  <div class="carousel-inner ">
-    <div class="carousel-item active ">
-      <img class="d-block w-100 " src="assets/background.jpg">
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img style="width:100%;" [src]="images[0]">
     </div>
-  </div>
-</div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[1]">
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[2]">
+    </div>
+  </ng-template>
+</ngb-carousel>

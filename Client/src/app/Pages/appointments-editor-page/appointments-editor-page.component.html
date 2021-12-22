@@ -1,0 +1,30 @@
+<div class="container h-100">
+    <div class="row justify-content-center align-items-center">
+        <div class="card" style="width: 18rem;">
+            <h1 class="card-title">Edit appointment</h1>
+            <form [formGroup] = "editAppointmentModel" (submit)="submitChanges()" autocomplete="off">
+                <div class="card-body">
+                    <h2 class="card-subtitle">Appointment Id:{{appointmentId}}</h2>
+                    <input class="input" formControlName="Id" hidden>
+                    
+                    <p class="card-text">Message:</p>
+                    <textarea formControlName="Message"></textarea>
+                    <label class="text-danger" *ngIf="editAppointmentModel.get('Message')?.touched && editAppointmentModel.get('Message')?.errors?.required">Message can`t be empty!</label>
+
+                    <p class="card-text">Time:</p>
+                    <input class="input" type="time" formControlName="Time">
+                    <label class="text-danger" *ngIf="editAppointmentModel.get('Time')?.touched && editAppointmentModel.get('Time')?.errors?.required">Time can`t be empty!</label>
+
+                    <p class="card-text">Date:</p>
+                    <input class="input" type="date" formControlName="AppointmenDate">
+                    <label class="text-danger" *ngIf="editAppointmentModel.get('AppointemtnDate')?.touched && editAppointmentModel.get('AppointemtnDate')?.errors?.required">Appointemnt Date can`t be empty!</label>
+    
+                    <button class="btn btn-light" [disabled]= "editAppointmentModel.invalid">Update</button>
+                </div>
+            </form> 
+            <div class="card-footer">
+                <button class="btn btn-light" routerLink="/appointmentsPanelPage" (click)="deleteConsultation(appointmentId)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

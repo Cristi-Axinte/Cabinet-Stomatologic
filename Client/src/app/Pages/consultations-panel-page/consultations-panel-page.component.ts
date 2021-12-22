@@ -28,7 +28,6 @@ export class ConsultationsPanelPageComponent implements OnInit {
            this.consultations = consultationsPricesFromDB;
          }
       )
-      console.log(this.consultations);
   }
 
   openConsultationEditor(consultationId : number) {

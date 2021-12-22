@@ -25,10 +25,10 @@ export class ConsultationsEditorPageComponent implements OnInit {
     public activeModal: NgbActiveModal, private form:FormBuilder, public consultationService: ConsultationsPricesService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getUserById(this.consultationId);
+    this.getConsultationById(this.consultationId);
   }
 
-  getUserById(consultationId : number) {
+  getConsultationById(consultationId : number) {
     this.consultationService.getConsultationById(consultationId).subscribe((consultationFromDB) => {
         this.consultationfromDB = consultationFromDB
 
@@ -50,7 +50,6 @@ export class ConsultationsEditorPageComponent implements OnInit {
   deleteConsultation(consultationId : number) {
       console.log(consultationId);
       this.consultationService.deleteConsultationById(consultationId).subscribe((res:any) => {
-        
       })
   }
 

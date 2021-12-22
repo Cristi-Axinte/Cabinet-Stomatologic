@@ -1,32 +1,35 @@
 <app-nav-bar></app-nav-bar>
-<form [formGroup]="appointmentService.appointmentForm" autocomplete="off" (submit)="onSubmit()">
-    <p>Schedule An Appointment </p>
-            <label>
-                <p class="label-txt">Pick Date</p>
-                <input type="date" formControlName="date" placeholder="Click to choose date" class="input">
-                <div class="line-box">
-                    <div class="line"></div>
-                </div>
-                <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('date')?.touched && appointmentService.appointmentForm.get('date')?.errors?.required">Date is required!</label>
-            </label>
-            
-            <label>
-                <p class="label-txt">Hour</p>
-                <input formControlName="time" type="time" class="input" >
-                <div class="line-box">
-                    <div class="line"></div>
-                </div>
-                <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('time')?.touched && appointmentService.appointmentForm.get('time')?.errors?.required">Hour is required!</label>
-            </label>
-
-            <label>
-                <p class="label-txt">Message</p>
-                <input formControlName="message" type="text" class="input" >
-                <div class="line-box">
-                    <div class="line"></div>
-                </div>
-            </label>
-
-    <button type="button" class="btn btn-light" routerLink="/mainPage">Home</button>
-    <button type="submit" class="btn btn-light" [disabled]="appointmentService.appointmentForm.invalid">Add</button>
-</form>
+<div class="container">
+    <form [formGroup]="appointmentService.appointmentForm" autocomplete="off" (submit)="onSubmit()">
+        <p>Schedule An Appointment </p>
+                <label>
+                    <p class="label-txt">Pick Date</p>
+                    <input type="date" formControlName="date" placeholder="Click to choose date" class="input">
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                    <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('date')?.touched && appointmentService.appointmentForm.get('date')?.errors?.required">Date is required!</label>
+                </label>
+                
+                <label>
+                    <p class="label-txt">Hour</p>
+                    <input formControlName="time" type="time" class="input" >
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                    <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('time')?.touched && appointmentService.appointmentForm.get('time')?.errors?.required">Hour is required!</label>
+                </label>
+    
+                <label>
+                    <p class="label-txt">Message</p>
+                    <input formControlName="message" type="text" class="input" >
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                </label>
+    
+        <button type="button" class="btn btn-light" routerLink="/mainPage">Home</button>
+        <button type="submit" class="btn btn-light" [disabled]="appointmentService.appointmentForm.invalid">Add</button>
+    </form>
+    
+</div>

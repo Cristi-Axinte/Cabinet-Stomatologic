@@ -47,3 +47,7 @@ body {
   font-size: 45px;
   font-family: "Montserrat ExtraBold"
 }
+
+.carousel-inner .sr-only {
+  display: none;
+}

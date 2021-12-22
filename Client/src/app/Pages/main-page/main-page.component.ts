@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-main-page',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-
-  constructor() { }
-
+  showNavigationArrows = false;
+  showNavigationIndicators = false;
+  images = ["assets/background.jpg", "assets/logo.png"]
+  constructor(public config: NgbCarouselConfig) { }
   ngOnInit(): void {
   }
-
 }

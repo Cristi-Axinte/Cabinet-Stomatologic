@@ -20,6 +20,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AppointmentsPanelPageComponent } from './Pages/appointments-panel-page/appointments-panel-page.component';
 import { ConsultationsPanelPageComponent } from './Pages/consultations-panel-page/consultations-panel-page.component';
 import { ConsultationsEditorPageComponent } from './Pages/consultations-editor-page/consultations-editor-page.component';
+import { AppointmentsEditorPageComponent } from './Pages/appointments-editor-page/appointments-editor-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ConsultationsEditorPageComponent } from './Pages/consultations-editor-p
     ContactPageComponent,
     AppointmentsPanelPageComponent,
     ConsultationsPanelPageComponent,
-    ConsultationsEditorPageComponent
+    ConsultationsEditorPageComponent,
+    AppointmentsEditorPageComponent
   ],
   imports: [
     BrowserModule,
