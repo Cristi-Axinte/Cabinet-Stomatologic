@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IConsultationsPrices } from 'src/app/Models/IConsultationsPrices';
 import { ConsultationsPricesService } from 'src/app/shared/consultations-prices.service';
+import { AddConsultationPageComponent } from '../add-consultation-page/add-consultation-page.component';
 import { ConsultationsEditorPageComponent } from '../consultations-editor-page/consultations-editor-page.component';
 
 @Component({
@@ -34,4 +35,9 @@ export class ConsultationsPanelPageComponent implements OnInit {
       this.currentDialog = this.modalService.open(ConsultationsEditorPageComponent);
       this.currentDialog.componentInstance.consultationId = consultationId;
   }
+
+  openAddConsultation() {
+    this.currentDialog = this.modalService.open(AddConsultationPageComponent);
+  }
+ 
 }

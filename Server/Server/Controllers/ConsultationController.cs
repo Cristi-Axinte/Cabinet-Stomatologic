@@ -20,7 +20,7 @@ namespace Server.Controllers
         }
 
         [HttpPost]
-        [Route("Post")]
+        [Route("AddConsultation")]
         public void PostConsultation(Consultations newConsultation)
         {
             _dbContext.Consultations.Add(newConsultation);

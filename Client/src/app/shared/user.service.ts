@@ -17,7 +17,6 @@ export class UserService {
     tokenDetails = JSON.parse(tokenDetails);
     console.log(tokenDetails)
     this.userRole = tokenDetails.role;
-    console.log("asta e roleu " + " " + this.userRole);
     if(this.userRole === "Admin")
     {
       return true;

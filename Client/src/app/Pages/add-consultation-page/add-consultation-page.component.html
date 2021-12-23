@@ -1,0 +1,20 @@
+<div class="container h-100">
+    <div class="row justify-content-center align-items-center">
+          <div class="card" style="width: 18rem;">
+            <h1 class="card-title">Add consultation</h1>
+            <form [formGroup] = "addConsultationModel" (submit)="onSubmit()"autocomplete="off">
+              <div class="card-body">
+                  <p class="card-text">Consultation Type:</p>
+                  <input class="input" formControlName="ConsultationType" >
+                  <label class="text-danger" *ngIf="addConsultationModel.get('ConsultationType')?.touched && addConsultationModel.get('ConsultationType')?.errors?.required">Consultation can`t be empty!</label>
+  
+                  <p class="card-text">Price:</p>
+                  <input class="input" formControlName="Price">
+                  <label class="text-danger" *ngIf="addConsultationModel.get('Price')?.touched && addConsultationModel.get('Price')?.errors?.required">Price can`t be empty!</label>
+  
+              <button class="btn btn-light" [disabled]= "addConsultationModel.invalid">Add</button>
+              </div>
+            </form> 
+          </div>
+      </div>
+  </div>

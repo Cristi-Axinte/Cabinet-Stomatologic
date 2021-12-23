@@ -21,6 +21,7 @@ import { AppointmentsPanelPageComponent } from './Pages/appointments-panel-page/
 import { ConsultationsPanelPageComponent } from './Pages/consultations-panel-page/consultations-panel-page.component';
 import { ConsultationsEditorPageComponent } from './Pages/consultations-editor-page/consultations-editor-page.component';
 import { AppointmentsEditorPageComponent } from './Pages/appointments-editor-page/appointments-editor-page.component';
+import { AddConsultationPageComponent } from './Pages/add-consultation-page/add-consultation-page.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AppointmentsEditorPageComponent } from './Pages/appointments-editor-pag
     AppointmentsPanelPageComponent,
     ConsultationsPanelPageComponent,
     ConsultationsEditorPageComponent,
-    AppointmentsEditorPageComponent
+    AppointmentsEditorPageComponent,
+    AddConsultationPageComponent
   ],
   imports: [
     BrowserModule,
