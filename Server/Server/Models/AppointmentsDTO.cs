@@ -13,7 +13,7 @@ namespace Server.Models
 
         public string LastName { get; set; }
 
-        public DateTime AppointmentDate { get; set; }
+        public string AppointmentDate { get; set; }
 
         public string Time { get; set; }
 

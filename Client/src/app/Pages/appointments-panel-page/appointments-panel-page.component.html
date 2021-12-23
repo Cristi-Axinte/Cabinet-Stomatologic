@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="main-ctn">
-    <ngx-datatable class="material" [rows]="appointments" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    <ngx-datatable class="material" [rows]="appointmentsToDisplay" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
     [rowHeight]="50" [scrollbarV]="true" [limit]="10" [sorts]="[{prop: 'name', dir: 'desc'}]" [scrollbarV]="false" >
     
     <ngx-datatable-column name="Id" prop="id">

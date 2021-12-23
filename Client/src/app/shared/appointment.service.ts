@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { IAppointmentDisplay } from '../Models/IAppointmentDisplay';
 import { IAppointments } from '../Models/IAppointments';
 
 @Injectable({
@@ -20,11 +21,11 @@ export class AppointmentService {
   constructor(public http: HttpClient, public formBuilder: FormBuilder) { }
 
   getAppointments() {
-    return this.http.get<IAppointments[]>(this.rootUrl + '/Appointment/Get');
+    return this.http.get<IAppointmentDisplay[]>(this.rootUrl + '/Appointment/Get');
   }
 
   getAppointmentsById(appointmentId : number) {
-    return this.http.get<IAppointments>(this.rootUrl + '/Appointment/'+ appointmentId)
+    return this.http.get<IAppointmentDisplay>(this.rootUrl + '/Appointment/'+ appointmentId)
   }
 
   postAppointment(userId : string) {
@@ -39,7 +40,7 @@ export class AppointmentService {
       return this.http.post(this.rootUrl + '/Appointment/Post', appointmentBody)
   }
 
-  sendUpdatedConsultation(editAppointmentsModel : any) {
+  sendUpdatedAppointment(editAppointmentsModel : any) {
     var appointmentDetails = {
       Id : editAppointmentsModel.value.Id,
       Message: editAppointmentsModel.value.Message,

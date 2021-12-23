@@ -1,8 +1,6 @@
 export interface IAppointments {
     id:number;
-    firstName: string;
-    lastName: string;
-    appointmentDate: Date;
+    data: Date;
     time: string;
     message: string;
 }

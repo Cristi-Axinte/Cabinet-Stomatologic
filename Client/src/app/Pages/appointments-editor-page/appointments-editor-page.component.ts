@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { IAppointmentDisplay } from 'src/app/Models/IAppointmentDisplay';
 import { IAppointments } from 'src/app/Models/IAppointments';
 import { AppointmentService } from 'src/app/shared/appointment.service';
 
@@ -16,14 +17,12 @@ export class AppointmentsEditorPageComponent implements OnInit {
 
   editAppointmentModel = this.form.group({
     Id: ['appointmentId', Validators.required],
-    FirstName: ['', Validators.required],
-    LastName: ['', Validators.required],
     AppointmentDate: ['', Validators.required],
     Message: ['', Validators.required],
     Time: ['', Validators.required],
   })
-  appointementsFromDB !: IAppointments;
-  
+
+  appointementsFromDB !: IAppointmentDisplay;
   constructor(public modalService: NgbModal,
     public activeModal: NgbActiveModal, private form:FormBuilder, public appointmentsService: AppointmentService, private router: Router) { }
 
@@ -33,12 +32,12 @@ export class AppointmentsEditorPageComponent implements OnInit {
 
   getAppointmentById(appointmentId : number) {
     this.appointmentsService.getAppointmentsById(appointmentId).subscribe((appointmentsFromDB) => {
+
         this.appointementsFromDB = appointmentsFromDB
+        console.log(this.appointementsFromDB.appointmentDate);
 
         this.editAppointmentModel = this.form.group({
           Id: [this.appointementsFromDB.id, Validators.required],
-          FirstName: [this.appointementsFromDB.firstName, Validators.required],
-          LastName: [this.appointementsFromDB.lastName, Validators.required],
           AppointmentDate: [this.appointementsFromDB.appointmentDate, Validators.required],
           Message: [this.appointementsFromDB.message, Validators.required],
           Time: [this.appointementsFromDB.time, Validators.required],
@@ -48,12 +47,12 @@ export class AppointmentsEditorPageComponent implements OnInit {
 
   submitChanges()
   {
-    this.appointmentsService.sendUpdatedConsultation(this.editAppointmentModel).subscribe((res:any) => {
+    this.appointmentsService.sendUpdatedAppointment(this.editAppointmentModel).subscribe((res:any) => {
     this.router.navigateByUrl('/appointemtnsPanelPage');
   });;
   }
 
-  deleteConsultation(appointmentId : number) {
+  deleteAppointment(appointmentId : number) {
       this.appointmentsService.deleteAppointmentById(appointmentId).subscribe((res:any) => {
       })
   }

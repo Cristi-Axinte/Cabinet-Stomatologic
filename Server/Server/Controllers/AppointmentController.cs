@@ -26,6 +26,7 @@ namespace Server.Controllers
             DateTime date = newAppointment.Data;
             DateTime dateForTime = DateTime.Now;
             TimeSpan ts = new TimeSpan(dateForTime.Hour, dateForTime.Minute, dateForTime.Second);
+
             newAppointment.Data = date.Date + ts;
             _dbContext.Appointments.Add(newAppointment);
             _dbContext.SaveChanges();
@@ -41,7 +42,7 @@ namespace Server.Controllers
                     Id = ap.Id,
                     FirstName = ap.ApplicationUser.FirstName,
                     LastName = ap.ApplicationUser.LastName,
-                    AppointmentDate = ap.Data,
+                    AppointmentDate = ap.Data.ToShortDateString(),
                     Message = ap.Message,
                     Time = ap.Time,
                 }).ToListAsync();
@@ -58,7 +59,7 @@ namespace Server.Controllers
                     Id = x.Id,
                     FirstName = x.ApplicationUser.FirstName,
                     LastName = x.ApplicationUser.LastName,
-                    AppointmentDate = x.Data,
+                    AppointmentDate = x.Data.ToShortDateString(),
                     Message = x.Message,
                     Time = x.Time,
                 }).SingleOrDefaultAsync();
@@ -86,6 +87,7 @@ namespace Server.Controllers
             DateTime dateForTime = DateTime.Now;
             TimeSpan ts = new TimeSpan(dateForTime.Hour, dateForTime.Minute, dateForTime.Second);
             appointmentSent.Data = date.Date + ts;
+
             var appointmentToUpdate = _dbContext.Appointments.Find(appointmentSent.Id);
             appointmentSent.UserId = appointmentToUpdate.UserId;
             _dbContext.Entry(appointmentToUpdate).CurrentValues.SetValues(appointmentSent);

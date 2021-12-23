@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { IAppointmentDisplay } from 'src/app/Models/IAppointmentDisplay';
 import { IAppointments } from 'src/app/Models/IAppointments';
 import { AppointmentService } from 'src/app/shared/appointment.service';
 
@@ -14,7 +15,7 @@ export class AppointmentPageComponent implements OnInit {
     message: '',
   }
   userId : string = ''
-  appointments: IAppointments[] = []
+  appointments: IAppointmentDisplay[] = []
 
   constructor(public appointmentService : AppointmentService) { }
 
