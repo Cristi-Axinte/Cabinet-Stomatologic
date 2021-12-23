@@ -29,7 +29,6 @@ export class AppointmentService {
 
   postAppointment(userId : string) {
     this.fullDate = this.appointmentForm.value.date;
-    console.log(this.fullDate);
     var appointmentBody = {
       userId: userId,
       data: this.fullDate,
@@ -43,15 +42,12 @@ export class AppointmentService {
   sendUpdatedConsultation(editAppointmentsModel : any) {
     var appointmentDetails = {
       Id : editAppointmentsModel.value.Id,
-      FirstName : editAppointmentsModel.value.FirstName,
-      LastName: editAppointmentsModel.value.LastName,
       Message: editAppointmentsModel.value.Message,
       Time: editAppointmentsModel.value.Time,
-      Data: editAppointmentsModel.value.Data,
+      Data: editAppointmentsModel.value.AppointmentDate,
     }
-    console.log(editAppointmentsModel.value.Id);
-    console.log(editAppointmentsModel.value.time);
-    console.log(editAppointmentsModel.value.date);
+    console.log(appointmentDetails.Time);
+    console.log(appointmentDetails.Data);
 
     return this.http.post(this.rootUrl + '/Appointment/UpdateAppointment', appointmentDetails);
   }

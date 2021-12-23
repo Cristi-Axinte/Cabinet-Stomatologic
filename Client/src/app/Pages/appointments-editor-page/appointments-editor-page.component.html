@@ -16,7 +16,7 @@
                     <label class="text-danger" *ngIf="editAppointmentModel.get('Time')?.touched && editAppointmentModel.get('Time')?.errors?.required">Time can`t be empty!</label>
 
                     <p class="card-text">Date:</p>
-                    <input class="input" type="date" formControlName="AppointmenDate">
+                    <input class="input" type="date" formControlName="AppointmentDate">
                     <label class="text-danger" *ngIf="editAppointmentModel.get('AppointemtnDate')?.touched && editAppointmentModel.get('AppointemtnDate')?.errors?.required">Appointemnt Date can`t be empty!</label>
     
                     <button class="btn btn-light" [disabled]= "editAppointmentModel.invalid">Update</button>

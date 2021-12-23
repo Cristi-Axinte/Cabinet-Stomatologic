@@ -82,7 +82,12 @@ namespace Server.Controllers
         public void UpdateConsultation(Appointments appointmentSent)
         
         {
+            DateTime date = appointmentSent.Data;
+            DateTime dateForTime = DateTime.Now;
+            TimeSpan ts = new TimeSpan(dateForTime.Hour, dateForTime.Minute, dateForTime.Second);
+            appointmentSent.Data = date.Date + ts;
             var appointmentToUpdate = _dbContext.Appointments.Find(appointmentSent.Id);
+            appointmentSent.UserId = appointmentToUpdate.UserId;
             _dbContext.Entry(appointmentToUpdate).CurrentValues.SetValues(appointmentSent);
             _dbContext.SaveChanges();
         }
