@@ -6375,11 +6375,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Cabinet Stomatologic 2\\Server\\Server\\Server.csproj",
+      "projectUniqueName": "D:\\Cabinet Stomatologic\\Server\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "D:\\Cabinet Stomatologic 2\\Server\\Server\\Server.csproj",
+      "projectPath": "D:\\Cabinet Stomatologic\\Server\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\Cristi\\.nuget\\packages\\",
-      "outputPath": "D:\\Cabinet Stomatologic 2\\Server\\Server\\obj\\",
+      "outputPath": "D:\\Cabinet Stomatologic\\Server\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Cristi\\AppData\\Roaming\\NuGet\\NuGet.Config",
