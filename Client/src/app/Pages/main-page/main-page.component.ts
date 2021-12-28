@@ -9,7 +9,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class MainPageComponent implements OnInit {
   showNavigationArrows = false;
   showNavigationIndicators = false;
-  images = ["assets/background.jpg", "assets/logo.png"]
+  images = ["assets/background.jpg", "assets/logo.png", "assets/car1.jpg", "assets/car2.png",]
   constructor(public config: NgbCarouselConfig) { }
   ngOnInit(): void {
   }
