@@ -15,7 +15,7 @@ export class AppointmentService {
   appointmentForm = this.formBuilder.group({
     date: ['', Validators.required],
     message: [''],
-    time:['', Validators.required]
+    time:['', [Validators.required, Validators.max(16), Validators.min(9)]]
   });
 
   constructor(public http: HttpClient, public formBuilder: FormBuilder) { }

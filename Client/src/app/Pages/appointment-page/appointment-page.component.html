@@ -18,6 +18,9 @@
                         <div class="line"></div>
                     </div>
                     <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('time')?.touched && appointmentService.appointmentForm.get('time')?.errors?.required">Hour is required!</label>
+                    <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('time')?.touched && appointmentService.appointmentForm.get('time')?.errors?.max">Not in work hours!</label>
+                    <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('time')?.touched && appointmentService.appointmentForm.get('time')?.errors?.min">Not in work hours!</label>
+                    <label class="text-danger">Work hours are from 9AM to 17PM!</label>
                 </label>
     
                 <label>

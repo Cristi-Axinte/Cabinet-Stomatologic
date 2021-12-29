@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LogoutCheckComponent } from 'src/app/Pages/logout-check/logout-check.component';
 import { UserService } from '../../user.service';
 
 @Component({
@@ -10,13 +12,16 @@ import { UserService } from '../../user.service';
 export class NavBarComponent implements OnInit {
   
   checkifAdmin : boolean = false;
-  constructor(public router: Router, public userService : UserService) { }
+  currentDialog: any = null;
+
+  constructor(public userService : UserService, public modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.checkifAdmin = this.userService.getAndCheckUserRole();
   }
 
   logout() {
-    this.router.navigate(['/userLogin'])
+    this.currentDialog = this.modalService.open(LogoutCheckComponent);
+   
   }
 }

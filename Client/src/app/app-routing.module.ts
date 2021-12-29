@@ -9,6 +9,7 @@ import { ConsultationsPanelPageComponent } from './Pages/consultations-panel-pag
 import { ContactPageComponent } from './Pages/contact-page/contact-page.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { PricesPageComponent } from './Pages/prices-page/prices-page.component';
+import { ReadmePageComponent } from './Pages/readme-page/readme-page.component';
 import { ServicesPageComponent } from './Pages/services-page/services-page.component';
 import { UserLoginPageComponent } from './Pages/user-login-page/user-login-page.component';
 import { UserRegistrationPageComponent } from './Pages/user-registration-page/user-registration-page.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'appointmentsPanelPage', component:AppointmentsPanelPageComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   {path: 'consultationEditorPage/:consultationId', component:ConsultationsEditorPageComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   {path: 'appointmentEditorPage/:appointmentId', component:AppointmentsEditorPageComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
+  {path: 'readme', component:ReadmePageComponent}
 ];
 
 @NgModule({

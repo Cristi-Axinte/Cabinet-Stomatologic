@@ -41,16 +41,14 @@ namespace Server.Controllers
                 Email = user.Email,
             };
 
-            try
+            
+            var result = await _userManager.CreateAsync(applicationUser, user.Password);
+            if (result.Succeeded )
             {
-                var result = await _userManager.CreateAsync(applicationUser, user.Password);
                 await _userManager.AddToRoleAsync(applicationUser, user.Role);
                 return Ok(result);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            else return BadRequest(new { message = "Account was not created!" });
         }
 
         [HttpPost]

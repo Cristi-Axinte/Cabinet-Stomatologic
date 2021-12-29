@@ -26,7 +26,7 @@
                                 <div class="form-group">
                                     <input type="password" class="form-control" formControlName="Password" placeholder="Password:"/>
                                     <label class="text-danger" *ngIf="service.formModel.get('Password')?.touched && service.formModel.get('Password')?.errors?.required">Password is required!</label>
-
+                                    <label class="text-danger" *ngIf="service.formModel.get('Password')?.touched && service.formModel.get('Password')?.errors?.minlength">Password must contain at least 6 characters</label>
                                 </div>
                             </div>
                             
@@ -42,6 +42,7 @@
                                     <label class="text-danger" *ngIf="service.formModel.get('UserName')?.touched && service.formModel.get('UserName')?.errors?.required">Username is required!</label>
                                 </div>
                                 <button type="submit" class="btnRegister" [disabled]="service.formModel.invalid">Register</button>
+                                <a routerLink="/readme">Help</a>
                             </div>
                         </div>
                     </form>

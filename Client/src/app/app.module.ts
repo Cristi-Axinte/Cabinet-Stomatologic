@@ -22,6 +22,10 @@ import { ConsultationsPanelPageComponent } from './Pages/consultations-panel-pag
 import { ConsultationsEditorPageComponent } from './Pages/consultations-editor-page/consultations-editor-page.component';
 import { AppointmentsEditorPageComponent } from './Pages/appointments-editor-page/appointments-editor-page.component';
 import { AddConsultationPageComponent } from './Pages/add-consultation-page/add-consultation-page.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LogoutCheckComponent } from './Pages/logout-check/logout-check.component';
+import { ReadmePageComponent } from './Pages/readme-page/readme-page.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,9 @@ import { AddConsultationPageComponent } from './Pages/add-consultation-page/add-
     ConsultationsPanelPageComponent,
     ConsultationsEditorPageComponent,
     AppointmentsEditorPageComponent,
-    AddConsultationPageComponent
+    AddConsultationPageComponent,
+    LogoutCheckComponent,
+    ReadmePageComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,9 @@ import { AddConsultationPageComponent } from './Pages/add-consultation-page/add-
     FormsModule,
     NgbModule,
     NgxDatatableModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [UserRegistrationService],
   bootstrap: [AppComponent]

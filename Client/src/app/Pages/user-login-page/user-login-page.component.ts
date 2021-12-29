@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserLoginService } from '../../shared/user-login.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { UserLoginService } from '../../shared/user-login.service';
 export class UserLoginPageComponent implements OnInit {
 
   constructor(public service:UserLoginService,
-    private router: Router,) { }
+    private router: Router, public toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.service.formModel.reset();
@@ -20,9 +21,13 @@ export class UserLoginPageComponent implements OnInit {
 
   onSubmit()
   {
-    this.service.login().subscribe((res:any) => {localStorage.setItem('token', res.token);
-    this.service.formModel.reset();
-    this.router.navigateByUrl('/mainPage');
-  });
+    this.service.login().subscribe((res: any) => 
+    {
+      localStorage.setItem('token', res.token);
+      this.router.navigateByUrl('/mainPage');
+    },
+    err=>{
+      this.toastr.error("Invalid credentials");
+    });
   }
 }

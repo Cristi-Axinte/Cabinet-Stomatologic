@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserRegistrationService } from '../../shared/user-registration.service';
 
 
@@ -9,25 +11,20 @@ import { UserRegistrationService } from '../../shared/user-registration.service'
 })
 export class UserRegistrationPageComponent implements OnInit {
 
-  constructor(public service: UserRegistrationService) { }
+  constructor(public service: UserRegistrationService, public router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.service.formModel.reset();
   }
 
-  onSubmit(){
-    this.service.register().subscribe(
-      (res : any) => {
-        if(res.succeded) {
-          this.service.formModel.reset();
-        }
-        else 
-        {
-          
-        }
-      },
-      err => {}
-    );
+  onSubmit() {
+    this.service.register().subscribe((res: any) => 
+    {
+      this.router.navigateByUrl('/userLogin');
+      this.toastr.success("Account created!");
+    },
+    err=>{
+      this.toastr.error("Invalid credentials!");
+    });
   }
-
 }

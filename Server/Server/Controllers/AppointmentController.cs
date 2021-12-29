@@ -30,6 +30,7 @@ namespace Server.Controllers
             newAppointment.Data = date.Date + ts;
             _dbContext.Appointments.Add(newAppointment);
             _dbContext.SaveChanges();
+
         }
 
         [HttpGet]

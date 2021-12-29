@@ -14,7 +14,7 @@ export class UserRegistrationService {
     LastName: ['',Validators.required],
     UserName : ['',Validators.required],
     Email: ['',[Validators.email, Validators.required]],
-    Password: ['',Validators.required],
+    Password: ['',[Validators.required, Validators.minLength(6)]],
   });
 
   readonly rootUrl = 'http://localhost:55066/api';
