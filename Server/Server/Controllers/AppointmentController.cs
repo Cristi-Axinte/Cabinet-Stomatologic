@@ -21,16 +21,21 @@ namespace Server.Controllers
 
         [HttpPost]
         [Route("Post")]
-        public void PostConsultation(Appointments newAppointment)
+        public bool PostConsultation(Appointments newAppointment)
         {
             DateTime date = newAppointment.Data;
             DateTime dateForTime = DateTime.Now;
             TimeSpan ts = new TimeSpan(dateForTime.Hour, dateForTime.Minute, dateForTime.Second);
-
             newAppointment.Data = date.Date + ts;
-            _dbContext.Appointments.Add(newAppointment);
-            _dbContext.SaveChanges();
 
+            var appointment = _dbContext.Appointments.SingleOrDefault(ap => ap.Data.Date == newAppointment.Data.Date && ap.Time == newAppointment.Time);
+            if (appointment == null)
+            {
+                _dbContext.Appointments.Add(newAppointment);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            else return false;
         }
 
         [HttpGet]

@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -24,7 +25,8 @@ export class AppointmentsEditorPageComponent implements OnInit {
 
   appointementsFromDB !: IAppointmentDisplay;
   constructor(public modalService: NgbModal,
-    public activeModal: NgbActiveModal, private form:FormBuilder, public appointmentsService: AppointmentService, private router: Router) { }
+    public activeModal: NgbActiveModal, private form:FormBuilder, 
+    public appointmentsService: AppointmentService, private router: Router, public datepipe: DatePipe) { }
 
   ngOnInit(): void {
     this.getAppointmentById(this.appointmentId);
@@ -36,9 +38,13 @@ export class AppointmentsEditorPageComponent implements OnInit {
         this.appointementsFromDB = appointmentsFromDB
         console.log(this.appointementsFromDB.appointmentDate);
 
+        var parsedDate = new Date(this.appointementsFromDB.appointmentDate);
+        let latestDate = this.datepipe.transform(parsedDate,'yyyy-MM-dd');
+        console.log(latestDate);
+
         this.editAppointmentModel = this.form.group({
           Id: [this.appointementsFromDB.id, Validators.required],
-          AppointmentDate: [this.appointementsFromDB.appointmentDate, Validators.required],
+          AppointmentDate: [latestDate, Validators.required],
           Message: [this.appointementsFromDB.message, Validators.required],
           Time: [this.appointementsFromDB.time, Validators.required],
         })
@@ -48,12 +54,15 @@ export class AppointmentsEditorPageComponent implements OnInit {
   submitChanges()
   {
     this.appointmentsService.sendUpdatedAppointment(this.editAppointmentModel).subscribe((res:any) => {
-    this.router.navigateByUrl('/appointemtnsPanelPage');
+      this.modalService.dismissAll();
+      location.reload();
   });;
   }
 
   deleteAppointment(appointmentId : number) {
       this.appointmentsService.deleteAppointmentById(appointmentId).subscribe((res:any) => {
+         this.modalService.dismissAll();
+         location.reload();
       })
   }
 

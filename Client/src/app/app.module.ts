@@ -26,6 +26,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogoutCheckComponent } from './Pages/logout-check/logout-check.component';
 import { ReadmePageComponent } from './Pages/readme-page/readme-page.component';
+import { DatePipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio'; 
 
 @NgModule({
   declarations: [
@@ -44,7 +48,7 @@ import { ReadmePageComponent } from './Pages/readme-page/readme-page.component';
     AppointmentsEditorPageComponent,
     AddConsultationPageComponent,
     LogoutCheckComponent,
-    ReadmePageComponent
+    ReadmePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +60,12 @@ import { ReadmePageComponent } from './Pages/readme-page/readme-page.component';
     NgxDatatableModule,
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatButtonModule,
+    MatDialogModule,
+    MatRadioModule,
   ],
-  providers: [UserRegistrationService],
+  providers: [UserRegistrationService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

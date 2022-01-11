@@ -10,7 +10,14 @@ export class MainPageComponent implements OnInit {
   showNavigationArrows = false;
   showNavigationIndicators = false;
   images = ["assets/background.jpg", "assets/logo.png", "assets/car1.jpg", "assets/car2.png",]
+  language = 1;
   constructor(public config: NgbCarouselConfig) { }
+
   ngOnInit(): void {
   }
+
+  receiver(event : any) {
+    this.language = event;
+    console.log(this.language);
+  } 
 }

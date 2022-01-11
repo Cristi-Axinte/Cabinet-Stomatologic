@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -9,6 +9,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class LogoutCheckComponent implements OnInit {
 
+  @Input() language: number = 0;
   constructor(public router: Router, public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {

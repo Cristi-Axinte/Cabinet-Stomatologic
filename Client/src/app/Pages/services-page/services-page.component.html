@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar (sender)="receiver($event)"></app-nav-bar>
 <style>
     section{
 	padding: 60px 0;
@@ -96,122 +96,218 @@ section .section-title{
     </div>
   </ng-template>
 </ngb-carousel>
-
-<div class="container my-5" style="background-color: white;">
-  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-      <p class="lead"><b>Implantul dentar</b> este o varianta moderna de inlocuire a dintilor pierduti, fara sacrificarea dintilor naturali.
-        Un zambet frumos inseamna satisfactie si incredere.
-        De cate ori n-ati ezitat sa zambiti, sa vorbiti sau sa mancati in public din cauza unuia sau mai multor dinti lipsa? De cate ori n-ati refuzat interactiuni sociale din cauza acestui neajuns?        
-        </p>
-    </div>
-    <div class="col-lg-4 p-0 overflow-hidden">
-        <img class="rounded-lg-3"src="assets/smile.jpg" width="490" height="210">>
-    </div>
-  </div>
-</div>
-
-<div class="container my-5" style="background-color: white;">
-<section id="what-we-do">
-    <div class="container-fluid">
-        <h2 class="section-title mb-2 h1">Servicii</h2>
-        <p class="text-center text-muted h5">Ajutorul ce il putem oferii clientilor nostrii.</p>
-        <div class="row mt-5">
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-1">
-                        <h3 class="card-title">Implantul dentar</h3>
-                        <p class="card-text">este elementul de baza in rezolvarea edentatiilor. Pacientul, atunci cand intra in cabinet, vrea dinti. Dar dintii sunt a doua etapa in acest ansamblu in care primul pas este implantul.</p>
-                        <a href="" title="Mai multe detalii" class="read-more" >Mai multe detalii<i class="fa fa-angle-double-right ml-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-2">
-                        <h3 class="card-title">Inserarea implantului dentar </h3>
-                        <p class="card-text">este o interventie chirurgicala prin care se inlocuieste radacina dintelui pierdut cu o piesa din titan, ziconiu sau mai nou ceramica.</p>
-                        <a href="" title="Mai multe detalii" class="read-more" >Mai multe detalii<i class="fa fa-angle-double-right ml-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-3">
-                        <h3 class="card-title">Odontologie</h3>
-                        <p class="card-text">tratamentul cariilor, realizat sub anestezie locala, cu materiale si tehnologie de ultima generatie – </p>
-                        <a href="" title="Read more" class="read-more" >Mai multe detalii<i class="fa fa-angle-double-right ml-2"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-4">
-                        <h3 class="card-title">Endodontie</h3>
-                        <p class="card-text">obturatii de canal, realizate dupa o tehnica moderna de preparare a canalelor, cu ace rotative</p>
-                        <a href="" title="Mai multe detalii" class="read-more" >Mai multe detalii<i class="fa fa-angle-double-right ml-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-5">
-                        <h3 class="card-title">Pedodontie</h3>
-                        <p class="card-text">initierea unui program de preventie: instructiuni pentru pastrarea unei igiene orale optime</p>
-                        <a href="" title="Read more" class="read-more" >Mai multe detalii<i class="fa fa-angle-double-right ml-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-6">
-                        <h3 class="card-title">Radiologie dentară</h3>
-                        <p class="card-text">retroalveolare, bitewing, ocluzale, pentru articulații, secționale și sinusuri, teleradiografii de craniu </p>
-                        <a href="" title="Read more" class="read-more" >Mai multe detalii<i class="fa fa-angle-double-right ml-2"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>	
-</div>
-</section>
-</div>
-
+    
+<div *ngIf="language == 1">  
 <div class="container my-5" style="background-color: white;">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <p class="lead">Cabinetul nostru stomatologic asigura tratamente dentare la cele mai înalte standarde atât pentru copii (tratamente pedodontice) cât si pentru adulti: estetica si cosmetica dentara (albire, obturatii estetice, fatete, coroane pe suport de zirconiu sau integral ceramice), tratamente profilactice, tratamentul cariilor, interventii de chirurgie orala, reconstructii dentare (implanturi dentare, proteze fixe / mobile, punti dentare), tratamente endodontice si tratamente parodontale
+        <p class="lead"><b>Implantul dentar</b> este o varianta moderna de inlocuire a dintilor pierduti, fara sacrificarea dintilor naturali.
+          Un zambet frumos inseamna satisfactie si incredere.
+          De cate ori n-ati ezitat sa zambiti, sa vorbiti sau sa mancati in public din cauza unuia sau mai multor dinti lipsa? De cate ori n-ati refuzat interactiuni sociale din cauza acestui neajuns?        
           </p>
       </div>
       <div class="col-lg-4 p-0 overflow-hidden">
-          <img class="rounded-lg-3"src="assets/child-dentar.jpg" width="490" height="210">
+          <img class="rounded-lg-3"src="assets/smile.jpg" width="490" height="210">>
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-<footer class="bg-light text-center text-lg-start" style="background-color: white;">
-  <div class="container p-4">
-    <div class="row">
-      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Contact</h5>
-
-        <p>
-          Street:  Strada Plivitului 68-70, Bucuresti 5, 051829<br>
-City:   Bucharest<br>
-Phone number:  +40(21)4237249<br>
-Country  Romania<br>
-        </p>
+  
+  <div class="container my-5" style="background-color: white;">
+  <section id="what-we-do">
+      <div class="container-fluid">
+          <h2 class="section-title mb-2 h1">Servicii</h2>
+          <p class="text-center text-muted h5">Ajutorul ce il putem oferii clientilor nostrii.</p>
+          <div class="row mt-5">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                      <div class="card-block block-1">
+                          <h3 class="card-title">Implantul dentar</h3>
+                          <p class="card-text">este elementul de baza in rezolvarea edentatiilor. Pacientul, atunci cand intra in cabinet, vrea dinti. Dar dintii sunt a doua etapa in acest ansamblu in care primul pas este implantul.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                      <div class="card-block block-2">
+                          <h3 class="card-title">Inserarea implantului dentar </h3>
+                          <p class="card-text">este o interventie chirurgicala prin care se inlocuieste radacina dintelui pierdut cu o piesa din titan, ziconiu sau mai nou ceramica.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                      <div class="card-block block-3">
+                          <h3 class="card-title">Odontologie</h3>
+                          <p class="card-text">tratamentul cariilor, realizat sub anestezie locala, cu materiale si tehnologie de ultima generatie – </p>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                      <div class="card-block block-4">
+                          <h3 class="card-title">Endodontie</h3>
+                          <p class="card-text">obturatii de canal, realizate dupa o tehnica moderna de preparare a canalelor, cu ace rotative</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                      <div class="card-block block-5">
+                          <h3 class="card-title">Pedodontie</h3>
+                          <p class="card-text">initierea unui program de preventie: instructiuni pentru pastrarea unei igiene orale optime</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                  <div class="card">
+                      <div class="card-block block-6">
+                          <h3 class="card-title">Radiologie dentară</h3>
+                          <p class="card-text">retroalveolare, bitewing, ocluzale, pentru articulații, secționale și sinusuri, teleradiografii de craniu </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>	
+  </div>
+  </section>
+  </div>
+  
+  <div class="container my-5" style="background-color: white;">
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <p class="lead">Cabinetul nostru stomatologic asigura tratamente dentare la cele mai înalte standarde atât pentru copii (tratamente pedodontice) cât si pentru adulti: estetica si cosmetica dentara (albire, obturatii estetice, fatete, coroane pe suport de zirconiu sau integral ceramice), tratamente profilactice, tratamentul cariilor, interventii de chirurgie orala, reconstructii dentare (implanturi dentare, proteze fixe / mobile, punti dentare), tratamente endodontice si tratamente parodontale
+            </p>
+        </div>
+        <div class="col-lg-4 p-0 overflow-hidden">
+            <img class="rounded-lg-3"src="assets/child-dentar.jpg" width="490" height="210">
+        </div>
       </div>
-      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Copyright 2022</h5>
+    </div>
+  <footer class="bg-light text-center text-lg-start" style="background-color: white;">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contact</h5>
+  
+          <p>
+              Strada:  Strada Plivitului 68-70, Bucuresti 5, 051829<br>
+              Oras:   Bucharest<br>
+              Number:  +40(21)4237249<br>
+              Tara:  Romania<br>
+          </p>
+        </div>
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Copyright 2022</h5>
+          </div>
+          </div>
+          </div>
+          </footer>
+</div>
+
+
+<div *ngIf="language == 2">  
+    <div class="container my-5" style="background-color: white;">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <p class="lead"><b>Dental Implant</b> it is the basic element in solving edentations. The patient wants teeth when he enters the office. But teeth are the second stage in this whole in which the first step is the implant.        
+              </p>
+          </div>
+          <div class="col-lg-4 p-0 overflow-hidden">
+              <img class="rounded-lg-3"src="assets/smile.jpg" width="490" height="210">>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container my-5" style="background-color: white;">
+      <section id="what-we-do">
+          <div class="container-fluid">
+              <h2 class="section-title mb-2 h1">Services</h2>
+              <p class="text-center text-muted h5">The help we can offer our clients.</p>
+              <div class="row mt-5">
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                      <div class="card">
+                          <div class="card-block block-1">
+                              <h3 class="card-title">Dental Implant</h3>
+                              <p class="card-text">is the basic element in solving edentations. The patient wants teeth when he enters the office. But teeth are the second stage in this whole in which the first step is the implant.</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                      <div class="card">
+                          <div class="card-block block-2">
+                              <h3 class="card-title">Dental implant insertion</h3>
+                              <p class="card-text">is a surgical procedure that replaces the root of the lost tooth with a piece of titanium, zirconium or more recently ceramic.</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                      <div class="card">
+                          <div class="card-block block-3">
+                              <h3 class="card-title">Odontology</h3>
+                              <p class="card-text">caries treatment, performed under local anesthesia, with the latest materials and technology</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                      <div class="card">
+                          <div class="card-block block-4">
+                              <h3 class="card-title">Endodontics</h3>
+                              <p class="card-text">channel fillings, made according to a modern channel preparation technique, with rotating needles</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                      <div class="card">
+                          <div class="card-block block-5">
+                              <h3 class="card-title">Pediatric dentistry</h3>
+                              <p class="card-text">initiating a prevention program: instructions for maintaining optimal oral hygiene</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                      <div class="card">
+                          <div class="card-block block-6">
+                              <h3 class="card-title">Dental radiology</h3>
+                              <p class="card-text">retroalveolar, bitewing, occlusal, for joints, sectional and sinuses, skull teleradiographs</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>	
+      </div>
+      </section>
+      </div>
+      
+      <div class="container my-5" style="background-color: white;">
+          <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+            <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+              <p class="lead">Our dental office provides dental treatments at the highest standards for both children (pedodontic treatments) and adults: aesthetics and dental cosmetics (whitening, cosmetic fillings, veneers, zirconium or all-ceramic crowns), prophylactic treatments, caries treatment , oral surgery, dental reconstructions (dental implants, fixed / mobile prostheses, dental bridges), endodontic treatments and periodontal treatments
+                </p>
+            </div>
+            <div class="col-lg-4 p-0 overflow-hidden">
+                <img class="rounded-lg-3"src="assets/child-dentar.jpg" width="490" height="210">
+            </div>
+          </div>
+        </div>
+      <footer class="bg-light text-center text-lg-start" style="background-color: white;">
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Contact</h5>
+      
+              <p>
+                Street:  Strada Plivitului 68-70, Bucuresti 5, 051829<br>
+                  City:   Bucharest<br>
+                  Phone number:  +40(21)4237249<br>
+                  Country  Romania<br>
+              </p>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Copyright 2022</h5>
+              </div>
+              </div>
+              </div>
+              </footer>
+    </div>

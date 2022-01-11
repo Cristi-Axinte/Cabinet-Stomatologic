@@ -13,6 +13,7 @@ import { ConsultationsPricesService } from 'src/app/shared/consultations-prices.
 export class ConsultationsEditorPageComponent implements OnInit {
 
   @Input() consultationId: number = 0;
+  @Input() language: number = 0;
 
   editConsultationModel = this.form.group({
     Id: ['consultationId', Validators.required],
@@ -43,13 +44,15 @@ export class ConsultationsEditorPageComponent implements OnInit {
   submitChanges()
   {
     this.consultationService.sendUpdatedConsultation(this.editConsultationModel).subscribe((res:any) => {
-    this.router.navigateByUrl('/consultationsPanelPage');
+      this.modalService.dismissAll();
+      location.reload();
   });;
   }
 
   deleteConsultation(consultationId : number) {
-      console.log(consultationId);
       this.consultationService.deleteConsultationById(consultationId).subscribe((res:any) => {
+        this.modalService.dismissAll();
+        location.reload();
       })
   }
 

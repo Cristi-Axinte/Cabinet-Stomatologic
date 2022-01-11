@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input ,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IAppointmentDisplay } from 'src/app/Models/IAppointmentDisplay';
@@ -17,7 +17,8 @@ export class AppointmentPageComponent implements OnInit {
   }
   userId : string = ''
   appointments: IAppointmentDisplay[] = []
-
+  language = 1;
+  
   constructor(public appointmentService : AppointmentService, public toastr : ToastrService) { }
 
   ngOnInit(): void {
@@ -25,7 +26,6 @@ export class AppointmentPageComponent implements OnInit {
     this.getUserId();
   }
 
-    
   getAppointments() {
     this.appointmentService.getAppointments().subscribe((appointmentsFromDB) => 
        {
@@ -34,7 +34,6 @@ export class AppointmentPageComponent implements OnInit {
         })
        }
     )
-    console.log(this.appointments);
   }
 
   getUserId() {
@@ -63,5 +62,10 @@ export class AppointmentPageComponent implements OnInit {
     err => {
       this.toastr.error("Hour is already taken");
     })
+  }
+
+  receiver(event : any) {
+    this.language = event;
+    console.log(this.language);
   }
 }

@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar (sender)="receiver($event)"></app-nav-bar>
 <div class="main-ctn">
     <ngx-datatable class="material" [rows]="consultations" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
     [rowHeight]="50" [scrollbarV]="true" [limit]="10" [sorts]="[{prop: 'name', dir: 'desc'}]" [scrollbarV]="false" >

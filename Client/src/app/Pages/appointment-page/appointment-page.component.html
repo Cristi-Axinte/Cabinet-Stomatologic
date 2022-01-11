@@ -1,5 +1,44 @@
-<app-nav-bar></app-nav-bar>
-<div class="container">
+<app-nav-bar (sender)="receiver($event)"></app-nav-bar>
+<div class="container" *ngIf="language == 1">
+    <form [formGroup]="appointmentService.appointmentForm" autocomplete="off" (submit)="onSubmit()">
+        <p>Programeaza-te</p>
+                <label>
+                    <p class="label-txt">Alege Data</p>
+                    <input type="date" formControlName="date" placeholder="Alege data" class="input">
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                    <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('date')?.touched && appointmentService.appointmentForm.get('date')?.errors?.required">Data este obligatorie!</label>
+                </label>
+                
+                <label>
+                    <p class="label-txt">Ora</p>
+                    <input formControlName="time" type="time" class="input" >
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                    <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('time')?.touched && appointmentService.appointmentForm.get('time')?.errors?.required">Ora este obligatorie!</label>
+                    <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('time')?.touched && appointmentService.appointmentForm.get('time')?.errors?.max">Ora aleasa nu este in timpul programului!</label>
+                    <label class="text-danger" *ngIf="appointmentService.appointmentForm.get('time')?.touched && appointmentService.appointmentForm.get('time')?.errors?.min">Ora aleasa nu este in timpul programului!</label>
+                    <label class="text-danger">Orele de lucru sunt de la 9 la 17!</label>
+                </label>
+    
+                <label>
+                    <p class="label-txt">Mesaj</p>
+                    <input formControlName="message" type="text" class="input" >
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                </label>
+    
+        <button type="button" class="btn btn-light" routerLink="/mainPage">Acasa</button>
+        <button type="submit" class="btn btn-light" [disabled]="appointmentService.appointmentForm.invalid">Adauga</button>
+    </form>
+</div>
+
+
+
+<div class="container" *ngIf="language == 2">
     <form [formGroup]="appointmentService.appointmentForm" autocomplete="off" (submit)="onSubmit()">
         <p>Schedule An Appointment </p>
                 <label>
@@ -34,6 +73,4 @@
         <button type="button" class="btn btn-light" routerLink="/mainPage">Home</button>
         <button type="submit" class="btn btn-light" [disabled]="appointmentService.appointmentForm.invalid">Add</button>
     </form>
-    
 </div>
-

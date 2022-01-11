@@ -1,26 +1,58 @@
-<div class="container h-100">
-  <div class="row justify-content-center align-items-center">
-        <div class="card" style="width: 18rem;">
-          <h1 class="card-title">Edit consultation</h1>
-          <form [formGroup] = "editConsultationModel" (submit)="submitChanges()" autocomplete="off">
-            <div class="card-body">
-                <h2 class="card-subtitle">Consultation Id:{{consultationId}}</h2>
-                <input class="input" formControlName="Id" hidden>
-                
-                <p class="card-text">Consultation Type:</p>
-                <input class="input" formControlName="ConsultationType" >
-                <label class="text-danger" *ngIf="editConsultationModel.get('ConsultationType')?.touched && editConsultationModel.get('ConsultationType')?.errors?.required">Consultation can`t be empty!</label>
-
-                <p class="card-text">Price:</p>
-                <input class="input" formControlName="Price">
-                <label class="text-danger" *ngIf="editConsultationModel.get('Price')?.touched && editConsultationModel.get('Price')?.errors?.required">Price can`t be empty!</label>
-
-            <button class="btn btn-light" [disabled]= "editConsultationModel.invalid">Update</button>
+<div *ngIf="language == 1">
+  <div class="container h-100">
+    <div class="row justify-content-center align-items-center">
+          <div class="card" style="width: 18rem;">
+            <h1 class="card-title">Editeaza Consultatia</h1>
+            <form [formGroup] = "editConsultationModel" (submit)="submitChanges()" autocomplete="off">
+              <div class="card-body">
+                  <h2 class="card-subtitle">Id Consultatie:{{consultationId}}</h2>
+                  <input class="input" formControlName="Id" hidden>
+                  
+                  <p class="card-text">Tipul Consultatiei:</p>
+                  <input class="input" formControlName="ConsultationType" >
+                  <label class="text-danger" *ngIf="editConsultationModel.get('ConsultationType')?.touched && editConsultationModel.get('ConsultationType')?.errors?.required">Tipul consultatiei nu poate fi gol!</label>
+  
+                  <p class="card-text">Pret:</p>
+                  <input class="input" formControlName="Price">
+                  <label class="text-danger" *ngIf="editConsultationModel.get('Price')?.touched && editConsultationModel.get('Price')?.errors?.required">Pretul nu poate fi gol!</label>
+  
+              <button class="btn btn-light" [disabled]= "editConsultationModel.invalid">Actualizare</button>
+              </div>
+            </form> 
+            <div class="card-footer">
+              <button class="btn btn-light" routerLink="/consultationsPanelPage" (click)="deleteConsultation(consultationId)">Sterge</button>
             </div>
-          </form> 
-          <div class="card-footer">
-            <button class="btn btn-light" routerLink="/consultationsPanelPage" (click)="deleteConsultation(consultationId)">Delete</button>
           </div>
-        </div>
-    </div>
+      </div>
+  </div>
+</div>
+
+
+<div *ngIf="language == 2">
+  <div class="container h-100">
+    <div class="row justify-content-center align-items-center">
+          <div class="card" style="width: 18rem;">
+            <h1 class="card-title">Edit consultation</h1>
+            <form [formGroup] = "editConsultationModel" (submit)="submitChanges()" autocomplete="off">
+              <div class="card-body">
+                  <h2 class="card-subtitle">Consultation Id:{{consultationId}}</h2>
+                  <input class="input" formControlName="Id" hidden>
+                  
+                  <p class="card-text">Consultation Type:</p>
+                  <input class="input" formControlName="ConsultationType" >
+                  <label class="text-danger" *ngIf="editConsultationModel.get('ConsultationType')?.touched && editConsultationModel.get('ConsultationType')?.errors?.required">Consultation can`t be empty!</label>
+  
+                  <p class="card-text">Price:</p>
+                  <input class="input" formControlName="Price">
+                  <label class="text-danger" *ngIf="editConsultationModel.get('Price')?.touched && editConsultationModel.get('Price')?.errors?.required">Price can`t be empty!</label>
+  
+              <button class="btn btn-light" [disabled]= "editConsultationModel.invalid">Update</button>
+              </div>
+            </form> 
+            <div class="card-footer">
+              <button class="btn btn-light" routerLink="/consultationsPanelPage" (click)="deleteConsultation(consultationId)">Delete</button>
+            </div>
+          </div>
+      </div>
+  </div>
 </div>

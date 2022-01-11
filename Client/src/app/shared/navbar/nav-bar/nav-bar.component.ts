@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LogoutCheckComponent } from 'src/app/Pages/logout-check/logout-check.component';
@@ -13,8 +13,12 @@ export class NavBarComponent implements OnInit {
   
   checkifAdmin : boolean = false;
   currentDialog: any = null;
+  language = 1;
 
-  constructor(public userService : UserService, public modalService: NgbModal) { }
+  @Output() sender = new EventEmitter();
+
+  constructor(public userService : UserService, public modalService: NgbModal,
+    public router: Router) { }
 
   ngOnInit(): void {
     this.checkifAdmin = this.userService.getAndCheckUserRole();
@@ -22,6 +26,12 @@ export class NavBarComponent implements OnInit {
 
   logout() {
     this.currentDialog = this.modalService.open(LogoutCheckComponent);
-   
+    this.currentDialog.componentInstance.language = this.language;
+  }
+
+  onRadioChange(event : any) {
+    this.language = event.value;
+    this.sender.emit(this.language);
+    console.log(this.language);
   }
 }

@@ -29,6 +29,20 @@
           </div>
         </li>
       </ul>
+      <img src="assets/globe.png" style="width:1.5%">
+      <div class="pull-right" style="margin-right:150px;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropbtn" bold style="color:black">Language</a>
+            <div class="dropdown-content" style="right: 15px; left: auto;">
+              <mat-radio-group >
+                <mat-radio-button (change)="onRadioChange($event)" value=1 checked>Romana <img src="assets/romania.png" style="width:20px"></mat-radio-button>
+                <mat-radio-button (change)="onRadioChange($event)" value=2>Engleza <img src="assets/english.png" style="width:20px"></mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </li>
+        </ul>
+      </div>
     <button class="btn btn-light" (click)="logout()">Logout</button>
   </div>
   </div>

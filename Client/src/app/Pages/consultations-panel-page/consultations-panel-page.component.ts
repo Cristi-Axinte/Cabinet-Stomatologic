@@ -14,6 +14,7 @@ export class ConsultationsPanelPageComponent implements OnInit {
 
   consultations: IConsultationsPrices[] = [];
   currentDialog: any = null;
+  language = 1;
 
   constructor(public consultationService : ConsultationsPricesService,
     public modalService: NgbModal) { }
@@ -34,10 +35,16 @@ export class ConsultationsPanelPageComponent implements OnInit {
   openConsultationEditor(consultationId : number) {
       this.currentDialog = this.modalService.open(ConsultationsEditorPageComponent);
       this.currentDialog.componentInstance.consultationId = consultationId;
+      this.currentDialog.componentInstance.language = this.language;
   }
 
   openAddConsultation() {
     this.currentDialog = this.modalService.open(AddConsultationPageComponent);
+    this.currentDialog.componentInstance.language = this.language;
   }
- 
+
+  receiver(event : any) {
+    this.language = event;
+    console.log(this.language);
+  } 
 }

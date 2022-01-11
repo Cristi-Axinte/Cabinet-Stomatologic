@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar (sender)="receiver($event)"></app-nav-bar>
 <ngb-carousel *ngIf="images">
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
@@ -16,63 +16,139 @@
     </div>
   </ng-template>
 </ngb-carousel>
-<div class="container my-5" style="background-color: white;">
-  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-      <h1 class="display-4 fw-bold lh-1">Clinica Stomatologica</h1>
-      <h2 class="display-4 fw-italic lh-1">DentMedical</h2>
-      <p class="lead">Tratamentele stomatologice în toata complexitatea lor, inclusiv aplicare de implanturi dentare si endodontie sub microscop, se realizeaza în 16 cabinete. Lucrarile protetice fixe si mobile din diverse materiale precum: acrilat, aur, compozit, zirconiu, ceramica, sunt realizate în laboratoare proprii si în colaborare cu cele din strainatate.
-        Radiografiile retroalveloare si panoramice se realizeaza cu aparatura moderna, cu doze diminuate de radiatie. Toate acestea ne dau posibilitatea efectuarii unor prestatii medicale stomatologice de top, cu promtitudine si profesionalism, ceea ce genereaza pacienti multumiti.
-        </p>
+
+<div  *ngIf="language == 1">
+  <div class="container my-5" style="background-color: white;" >
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1">Clinica Stomatologica</h1>
+        <h2 class="display-4 fw-italic lh-1">DentMedical</h2>
+        <p class="lead">Tratamentele stomatologice în toata complexitatea lor, inclusiv aplicare de implanturi dentare si endodontie sub microscop, se realizeaza în 16 cabinete. Lucrarile protetice fixe si mobile din diverse materiale precum: acrilat, aur, compozit, zirconiu, ceramica, sunt realizate în laboratoare proprii si în colaborare cu cele din strainatate.
+          Radiografiile retroalveloare si panoramice se realizeaza cu aparatura moderna, cu doze diminuate de radiatie. Toate acestea ne dau posibilitatea efectuarii unor prestatii medicale stomatologice de top, cu promtitudine si profesionalism, ceea ce genereaza pacienti multumiti.
+          </p>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
+          <img class="rounded-lg-3" [src]="images[1]" width="400px" height="86px" style="margin-right: auto;">
+      </div>
     </div>
-    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
-        <img class="rounded-lg-3" [src]="images[1]" width="400px" height="86px" style="margin-right: auto;">
-    </div>
+  <a></a>
+  </div >
+  <div class="container my-5" style="background-color: white;">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h4>DentMedical- un complex de cabinete cu toate ramurile ei:</h4>
+        <div class="row">
+          <div class="col-sm">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">odontologie</li>
+            <li class="list-group-item">endodotie</li>
+            <li class="list-group-item">protetica dentara</li>
+            <li class="list-group-item">radiologie</li>
+            <li class="list-group-item">parodontologie</li>
+            </ul>
+          </div>
+          <div class="col-sm">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">implantologie</li>
+                <li class="list-group-item">ortodontie</li>
+                <li class="list-group-item">chirurgie orala</li>
+                <li class="list-group-item">cosmetica dentara</li>
+                <li class="list-group-item">laboratoare de protetica dentara</li>
+              </ul>
+            </div>
   </div>
-<a></a>
-</div>
-<div class="container my-5" style="background-color: white;">
-  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-      <h4>DentMedical- un complex de cabinete cu toate ramurile ei:</h4>
+  </div >
+  <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
+    <img class="rounded-lg-3" src="assets/building.jpg" width="400px" height="86px" style="margin-right: auto;">
+  </div>
+  </div>
+  </div>
+  <footer class="bg-light text-center text-lg-start" style="background-color: white;">
+    <div class="container p-4">
       <div class="row">
-        <div class="col-sm">
-          <ul class="list-group list-group-flush">
-          <li class="list-group-item">odontologie</li>
-          <li class="list-group-item">endodotie</li>
-          <li class="list-group-item">protetica dentara</li>
-          <li class="list-group-item">radiologie</li>
-          <li class="list-group-item">parodontologie</li>
-          </ul>
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Contact</h5>
+            <p>
+              Strada:  Strada Plivitului 68-70, Bucuresti 5, 051829<br>
+              Oras:   Bucharest<br>
+              Numar de telefon:  +40(21)4237249<br>
+              Tara:  Romania<br>
+            </p>
+          </div>
+       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Copyright 2022</h5>
         </div>
-        <div class="col-sm">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">implantologie</li>
-        <li class="list-group-item">ortodontie</li>
-        <li class="list-group-item">chirurgie orala</li>
-        <li class="list-group-item">cosmetica dentara</li>
-        <li class="list-group-item">laboratoare de protetica dentara</li>
-        </ul>
+      </div>
+    </div>
+    </footer>
     </div>
     
-</div>
-</div>
-<div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
-  <img class="rounded-lg-3" src="assets/building.jpg" width="400px" height="86px" style="margin-right: auto;">
-</div>
-</div>
-</div>
-<footer class="bg-light text-center text-lg-start" style="background-color: white;">
-  <div class="container p-4">
-    <div class="row">
-      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Contact</h5>
-        <p>
-          Street:  Strada Plivitului 68-70, Bucuresti 5, 051829<br>
-City:   Bucharest<br>
-Phone number:  +40(21)4237249<br>
-Country  Romania<br>
-        </p>
+
+
+
+    <div  *ngIf="language == 2">
+      <div class="container my-5" style="background-color: white;" >
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h1 class="display-4 fw-bold lh-1">Dental Clinic</h1>
+            <h2 class="display-4 fw-italic lh-1">DentMedical</h2>
+            <p class="lead">Dental treatments in all their complexity, including the application of dental implants and endodontics under a microscope, are performed in 16 offices. The fixed and mobile prosthetic works from various materials such as: acrylate, gold, composite, zirconium, ceramics, are made in our own laboratories and in collaboration with those from abroad.
+              Backlit and panoramic radiographs are performed with modern equipment, with reduced doses of radiation. All these give us the possibility to perform top dental medical services, with promptness and professionalism, which generates satisfied patients.
+              </p>
+          </div>
+          <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
+              <img class="rounded-lg-3" [src]="images[1]" width="400px" height="86px" style="margin-right: auto;">
+          </div>
+        </div>
+      <a></a>
+      </div >
+      <div class="container my-5" style="background-color: white;">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h4>DentMedical - a complex of offices with all its branches:</h4>
+            <div class="row">
+              <div class="col-sm">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">odontology</li>
+                <li class="list-group-item">edontology</li>
+                <li class="list-group-item">prosthetic dentistry</li>
+                <li class="list-group-item">radiology</li>
+                <li class="list-group-item">periodontology</li>
+                </ul>
+              </div>
+              <div class="col-sm">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">implantology</li>
+                    <li class="list-group-item">orthodontics</li>
+                    <li class="list-group-item">oral surgery</li>
+                    <li class="list-group-item">dental cosmetics</li>
+                    <li class="list-group-item">dental prosthetic laboratories</li>
+                  </ul>
+                </div>
       </div>
-      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Copyright 2022</h5>
+      </div >
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
+        <img class="rounded-lg-3" src="assets/building.jpg" width="400px" height="86px" style="margin-right: auto;">
+      </div>
+      </div>
+      </div>
+      <footer class="bg-light text-center text-lg-start" style="background-color: white;">
+        <div class="container p-4">
+          <div class="row">
+              <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Contact</h5>
+                <p>
+                  Street:  Strada Plivitului 68-70, Bucuresti 5, 051829<br>
+                  City:   Bucharest<br>
+                  Phone number:  +40(21)4237249<br>
+                  Country  Romania<br>
+                </p>
+              </div>
+           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Copyright 2022</h5>
+            </div>
+          </div>
+        </div>
+        </footer>
+        </div>
+        

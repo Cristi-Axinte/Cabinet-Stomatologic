@@ -16,6 +16,7 @@ export class AppointmentsPanelPageComponent implements OnInit {
   appointmentsToDisplay : IAppointmentDisplay[] = [];
   currentDialog: any = null;
   dates: string[] = [];
+  language = 1;
 
   constructor(public appointmentService : AppointmentService, public modalService: NgbModal) { }
 
@@ -34,5 +35,10 @@ export class AppointmentsPanelPageComponent implements OnInit {
   openAppointmentEditor(appointmentId : number) {
     this.currentDialog = this.modalService.open(AppointmentsEditorPageComponent);
     this.currentDialog.componentInstance.appointmentId = appointmentId;
-}
+  }
+
+  receiver(event : any) {
+    this.language = event;
+    console.log(this.language);
+  } 
 }

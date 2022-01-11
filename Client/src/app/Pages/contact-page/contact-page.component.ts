@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPageComponent implements OnInit {
 
+  language = 1;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  receiver(event : any) {
+    this.language = event;
+    console.log(this.language);
+  } 
 }

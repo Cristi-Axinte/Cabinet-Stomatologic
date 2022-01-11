@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -15,6 +15,7 @@ export class AddConsultationPageComponent implements OnInit {
     ConsultationType: ['', Validators.required],
     Price: ['', Validators.required],
   })
+  @Input() language: number = 0;
   constructor(public modalService: NgbModal,
     public activeModal: NgbActiveModal, private form:FormBuilder, public consultationService: ConsultationsPricesService, private router: Router) { }
 
@@ -24,6 +25,8 @@ export class AddConsultationPageComponent implements OnInit {
 
   onSubmit() {
     this.consultationService.addConsultation(this.addConsultationModel).subscribe((res:any) => {
+      this.modalService.dismissAll();
+      location.reload();
   });
   }
 
